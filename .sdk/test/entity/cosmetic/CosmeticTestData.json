@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "cosmetic": {
+      "COSMETIC00": {
+        "added": "s46",
+        "description": "s47",
+        "id": "COSMETIC00",
+        "image": {},
+        "name": "s4a",
+        "rarity": {},
+        "type": {}
+      },
+      "COSMETIC01": {
+        "added": "s8c",
+        "description": "s8d",
+        "id": "COSMETIC01",
+        "image": {},
+        "name": "s90",
+        "rarity": {},
+        "type": {}
+      },
+      "COSMETIC02": {
+        "added": "sd2",
+        "description": "sd3",
+        "id": "COSMETIC02",
+        "image": {},
+        "name": "sd6",
+        "rarity": {},
+        "type": {}
+      }
+    }
+  },
+  "new": {
+    "cosmetic": {
+      "cosmetic_ref01": {
+        "added": "s118",
+        "description": "s119",
+        "image": {},
+        "name": "s11c",
+        "rarity": {},
+        "type": {}
+      }
+    }
+  }
+}

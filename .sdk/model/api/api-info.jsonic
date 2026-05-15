@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://dash.fortnite-api.com/"
+      }
+      description: "The Fortnite API provides a wealth of data related to the popular battle royale game, including player statistics, cosmetics, daily shop items, news updates, and various game modes. It is updated automatically with each game patch to ensure the information is current and accurate, making it an essential resource for developers and gamers alike."
+      servers: [
+        {
+          description: "Production API Server"
+          url: "https://fortnite-api.com/v2"
+        }
+      ]
+      title: "Fortnite API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

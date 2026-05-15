@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "shop": {
+      "SHOP00": {
+        "data": {},
+        "status": "s15"
+      },
+      "SHOP01": {
+        "data": {},
+        "status": "s29"
+      },
+      "SHOP02": {
+        "data": {},
+        "status": "s3d"
+      }
+    }
+  },
+  "new": {
+    "shop": {
+      "shop_ref01": {
+        "data": {},
+        "status": "s51"
+      }
+    }
+  }
+}

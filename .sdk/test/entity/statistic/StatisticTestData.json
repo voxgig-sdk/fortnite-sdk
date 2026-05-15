@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "statistic": {
+      "STATISTIC00": {
+        "data": {},
+        "status": "s15"
+      },
+      "STATISTIC01": {
+        "data": {},
+        "status": "s29"
+      },
+      "STATISTIC02": {
+        "data": {},
+        "status": "s3d"
+      }
+    }
+  },
+  "new": {
+    "statistic": {
+      "statistic_ref01": {
+        "data": {},
+        "status": "s51"
+      }
+    }
+  }
+}

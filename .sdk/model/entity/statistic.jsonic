@@ -1,0 +1,85 @@
+# Entity: statistic
+
+main: kit: entity: statistic: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "data"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "statistic"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "account_id"
+                orig: "account_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "image"
+                orig: "image"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "lifetime"
+                kind: "query"
+                name: "time_window"
+                orig: "time_window"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/stats/br/v2"
+          parts: [
+            "stats"
+            "br"
+            "v2"
+          ]
+          select: {
+            exist: [
+              "account_id"
+              "image"
+              "name"
+              "time_window"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

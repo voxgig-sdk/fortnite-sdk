@@ -1,0 +1,28 @@
+# BasicShopFlow
+
+main: kit: flow: BasicShopFlow:
+{
+  entity: "shop",
+  kind: "basic",
+  name: "BasicShopFlow",
+  step: [
+    {
+      input: {
+        ref: "shop_ref01",
+        srcdatavar: "shop_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-shop_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicShopFlow"
+}

@@ -1,0 +1,605 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Fortnite API",
+    "description": "The Fortnite API provides a wealth of data related to the popular battle royale game, including player statistics, cosmetics, daily shop items, news updates, and various game modes. It is updated automatically with each game patch to ensure the information is current and accurate, making it an essential resource for developers and gamers alike.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://dash.fortnite-api.com/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://fortnite-api.com/v2",
+      "description": "Production API Server"
+    }
+  ],
+  "paths": {
+    "/cosmetics/br": {
+      "get": {
+        "summary": "Get Battle Royale Cosmetics",
+        "description": "Retrieve a list of all Battle Royale cosmetic items including skins, emotes, pickaxes, gliders, and more.",
+        "operationId": "getBRCosmetics",
+        "tags": [
+          "Cosmetics"
+        ],
+        "parameters": [
+          {
+            "name": "language",
+            "in": "query",
+            "description": "Language code for localized content",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "en",
+              "enum": [
+                "en",
+                "ar",
+                "de",
+                "es",
+                "es-419",
+                "fr",
+                "it",
+                "ja",
+                "ko",
+                "pl",
+                "pt-BR",
+                "ru",
+                "tr",
+                "zh-CN",
+                "zh-Hant"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with cosmetics data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Cosmetic"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shop/br": {
+      "get": {
+        "summary": "Get Battle Royale Shop",
+        "description": "Retrieve the current daily shop items available in the Fortnite Battle Royale item shop.",
+        "operationId": "getBRShop",
+        "tags": [
+          "Shop"
+        ],
+        "parameters": [
+          {
+            "name": "language",
+            "in": "query",
+            "description": "Language code for localized content",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with shop data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "hash": {
+                          "type": "string",
+                          "description": "Unique hash of the current shop"
+                        },
+                        "date": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Date when the shop was last updated"
+                        },
+                        "featured": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/ShopEntry"
+                          }
+                        },
+                        "daily": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/ShopEntry"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/br/v2": {
+      "get": {
+        "summary": "Get Battle Royale Player Statistics",
+        "description": "Retrieve player statistics for Fortnite Battle Royale including wins, kills, K/D ratio, and match data across different game modes.",
+        "operationId": "getBRStats",
+        "tags": [
+          "Statistics"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Epic Games account name of the player",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "description": "Epic Games account ID of the player",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timeWindow",
+            "in": "query",
+            "description": "Time window for statistics",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "season",
+                "lifetime"
+              ],
+              "default": "lifetime"
+            }
+          },
+          {
+            "name": "image",
+            "in": "query",
+            "description": "Return response as an image",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "all",
+                "keyboardMouse",
+                "gamepad",
+                "touch",
+                "none"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with player statistics",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "account": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "battlePass": {
+                          "type": "object",
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "progress": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "stats": {
+                          "type": "object",
+                          "properties": {
+                            "all": {
+                              "$ref": "#/components/schemas/GameModeStats"
+                            },
+                            "keyboardMouse": {
+                              "$ref": "#/components/schemas/GameModeStats"
+                            },
+                            "gamepad": {
+                              "$ref": "#/components/schemas/GameModeStats"
+                            },
+                            "touch": {
+                              "$ref": "#/components/schemas/GameModeStats"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Player not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Cosmetic": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the cosmetic item"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the cosmetic item"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the cosmetic item"
+          },
+          "type": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "Type of cosmetic (outfit, pickaxe, glider, etc.)"
+              },
+              "displayValue": {
+                "type": "string",
+                "description": "Display name of the type"
+              }
+            }
+          },
+          "rarity": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "Rarity level"
+              },
+              "displayValue": {
+                "type": "string",
+                "description": "Display name of the rarity"
+              }
+            }
+          },
+          "images": {
+            "type": "object",
+            "properties": {
+              "smallIcon": {
+                "type": "string",
+                "format": "uri"
+              },
+              "icon": {
+                "type": "string",
+                "format": "uri"
+              },
+              "featured": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "added": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date when the item was added"
+          }
+        }
+      },
+      "ShopEntry": {
+        "type": "object",
+        "properties": {
+          "mainId": {
+            "type": "string",
+            "description": "Main item ID"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "Display name of the shop entry"
+          },
+          "displayDescription": {
+            "type": "string",
+            "description": "Description of the shop entry"
+          },
+          "mainType": {
+            "type": "string",
+            "description": "Type of the main item"
+          },
+          "offerId": {
+            "type": "string",
+            "description": "Unique offer ID"
+          },
+          "price": {
+            "type": "object",
+            "properties": {
+              "regularPrice": {
+                "type": "integer",
+                "description": "Regular price in V-Bucks"
+              },
+              "finalPrice": {
+                "type": "integer",
+                "description": "Final price in V-Bucks"
+              }
+            }
+          },
+          "bundle": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "info": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Cosmetic"
+            }
+          }
+        }
+      },
+      "GameModeStats": {
+        "type": "object",
+        "properties": {
+          "overall": {
+            "$ref": "#/components/schemas/StatsDetail"
+          },
+          "solo": {
+            "$ref": "#/components/schemas/StatsDetail"
+          },
+          "duo": {
+            "$ref": "#/components/schemas/StatsDetail"
+          },
+          "trio": {
+            "$ref": "#/components/schemas/StatsDetail"
+          },
+          "squad": {
+            "$ref": "#/components/schemas/StatsDetail"
+          },
+          "ltm": {
+            "$ref": "#/components/schemas/StatsDetail"
+          }
+        }
+      },
+      "StatsDetail": {
+        "type": "object",
+        "properties": {
+          "score": {
+            "type": "integer",
+            "description": "Total score"
+          },
+          "scorePerMin": {
+            "type": "number",
+            "format": "double",
+            "description": "Score per minute"
+          },
+          "scorePerMatch": {
+            "type": "number",
+            "format": "double",
+            "description": "Score per match"
+          },
+          "wins": {
+            "type": "integer",
+            "description": "Number of wins"
+          },
+          "top3": {
+            "type": "integer",
+            "description": "Number of top 3 finishes"
+          },
+          "top5": {
+            "type": "integer",
+            "description": "Number of top 5 finishes"
+          },
+          "top6": {
+            "type": "integer",
+            "description": "Number of top 6 finishes"
+          },
+          "top10": {
+            "type": "integer",
+            "description": "Number of top 10 finishes"
+          },
+          "top12": {
+            "type": "integer",
+            "description": "Number of top 12 finishes"
+          },
+          "top25": {
+            "type": "integer",
+            "description": "Number of top 25 finishes"
+          },
+          "kills": {
+            "type": "integer",
+            "description": "Total kills"
+          },
+          "killsPerMin": {
+            "type": "number",
+            "format": "double",
+            "description": "Kills per minute"
+          },
+          "killsPerMatch": {
+            "type": "number",
+            "format": "double",
+            "description": "Kills per match"
+          },
+          "deaths": {
+            "type": "integer",
+            "description": "Total deaths"
+          },
+          "kd": {
+            "type": "number",
+            "format": "double",
+            "description": "Kill/Death ratio"
+          },
+          "matches": {
+            "type": "integer",
+            "description": "Total matches played"
+          },
+          "winRate": {
+            "type": "number",
+            "format": "double",
+            "description": "Win rate percentage"
+          },
+          "minutesPlayed": {
+            "type": "integer",
+            "description": "Total minutes played"
+          },
+          "playersOutlived": {
+            "type": "integer",
+            "description": "Total players outlived"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "description": "HTTP status code"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Cosmetics",
+      "description": "Endpoints for retrieving Fortnite cosmetic items including skins, emotes, pickaxes, and more"
+    },
+    {
+      "name": "Shop",
+      "description": "Endpoints for retrieving current daily shop items and featured bundles"
+    },
+    {
+      "name": "Statistics",
+      "description": "Endpoints for retrieving player statistics and game performance data"
+    }
+  ]
+}

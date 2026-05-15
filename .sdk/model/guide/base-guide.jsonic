@@ -1,0 +1,28 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 3
+  metrics: count: path: 3
+  metrics: count: method: 3
+
+  entity: cosmetic: {
+    path: "/cosmetics/br": {
+      action: "br": {}
+      op: list: method: *GET
+    }
+  }
+
+  entity: shop: {
+    path: "/shop/br": {
+      action: "br": {}
+      op: load: method: *GET
+    }
+  }
+
+  entity: statistic: {
+    path: "/stats/br/v2": {
+      op: load: method: *GET
+    }
+  }
+
+}
