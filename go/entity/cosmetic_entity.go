@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/fortnite-sdk/core"
+	"github.com/voxgig-sdk/fortnite-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/fortnite-sdk/go/utility/struct"
 )
 
 type CosmeticEntity struct {

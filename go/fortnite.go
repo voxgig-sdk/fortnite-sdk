@@ -1,10 +1,10 @@
 package voxgigfortnitesdk
 
 import (
-	"github.com/voxgig-sdk/fortnite-sdk/core"
-	"github.com/voxgig-sdk/fortnite-sdk/entity"
-	"github.com/voxgig-sdk/fortnite-sdk/feature"
-	_ "github.com/voxgig-sdk/fortnite-sdk/utility"
+	"github.com/voxgig-sdk/fortnite-sdk/go/core"
+	"github.com/voxgig-sdk/fortnite-sdk/go/entity"
+	"github.com/voxgig-sdk/fortnite-sdk/go/feature"
+	_ "github.com/voxgig-sdk/fortnite-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

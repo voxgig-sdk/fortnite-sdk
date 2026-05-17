@@ -3,15 +3,18 @@
     "shop": {
       "SHOP00": {
         "data": {},
-        "status": "s15"
+        "status": "s15",
+        "id": "SHOP00"
       },
       "SHOP01": {
         "data": {},
-        "status": "s29"
+        "status": "s29",
+        "id": "SHOP01"
       },
       "SHOP02": {
         "data": {},
-        "status": "s3d"
+        "status": "s3d",
+        "id": "SHOP02"
       }
     }
   },

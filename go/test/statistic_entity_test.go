@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/fortnite-sdk"
-	"github.com/voxgig-sdk/fortnite-sdk/core"
+	sdk "github.com/voxgig-sdk/fortnite-sdk/go"
+	"github.com/voxgig-sdk/fortnite-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/fortnite-sdk/go/utility/struct"
 )
 
 func TestStatisticEntity(t *testing.T) {

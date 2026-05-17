@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/fortnite-sdk/core"
+	"github.com/voxgig-sdk/fortnite-sdk/go/core"
 )
 
 type LogFeature struct {

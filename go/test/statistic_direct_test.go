@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/fortnite-sdk"
-	"github.com/voxgig-sdk/fortnite-sdk/core"
+	sdk "github.com/voxgig-sdk/fortnite-sdk/go"
+	"github.com/voxgig-sdk/fortnite-sdk/go/core"
 )
 
 func TestStatisticDirect(t *testing.T) {
