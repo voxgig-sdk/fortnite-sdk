@@ -74,14 +74,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'FORTNITE_TEST_STATISTIC_ENTID': {},
     'FORTNITE_TEST_LIVE': 'FALSE',
-    'FORTNITE_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.FORTNITE_TEST_LIVE
 
   if (live) {
     const client = new FortniteSDK({
-      apikey: env.FORTNITE_APIKEY,
     })
 
     let idmap: any = env['FORTNITE_TEST_STATISTIC_ENTID']

@@ -16,7 +16,19 @@
           }
         ],
         "title": "Fortnite API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Community-run Fortnite data hub for cosmetics, item shop, player stats and news",
+        "homepage": "https://fortnite-api.com/",
+        "docs_url": "https://dash.fortnite-api.com/",
+        "license_short": "Unofficial community project, not endorsed by Epic Games",
+        "license_md": "- Independent, community-driven project — not affiliated with or endorsed by Epic Games.\n- All Fortnite trademarks and game data belong to Epic Games.\n- Some endpoints (notably player stats) require a free API key obtained from the dashboard account section.\n- CORS is disabled on the endpoints; use the API from a server-side context.",
+        "about_md": "[Fortnite-API](https://fortnite-api.com/) is a community-maintained REST service that mirrors Fortnite game data into a clean JSON API. It is updated automatically with each Fortnite patch and is run independently of Epic Games.\n\nWhat you get from the API:\n\n- Cosmetic catalogue, including unreleased variants\n- Daily and featured item shop inventory (refreshed at midnight UTC)\n- Battle royale player statistics, with optional generated stat images\n- Game news across the available modes\n- Supporting reference data: playlists, minimap with points of interest, banners, AES pak decryption keys, and creator code lookups\n\nOperationally, most read-only endpoints are open, while player-stats endpoints expect an API key issued from the [dashboard](https://dash.fortnite-api.com/). CORS is disabled, so calls should be made server-side. The published health dashboard reports the service running at high reliability with sub-400ms responses.",
+        "entity_desc": {
+          "cosmetic": "Fortnite cosmetic items (outfits, back blings, pickaxes, emotes, etc.), including unreleased variants, served from the `/v2/cosmetics` family of endpoints.",
+          "shop": "Snapshots of the in-game item shop — daily and featured inventory refreshed at midnight UTC, served from the `shop` endpoints.",
+          "statistic": "Battle royale player statistics keyed by account, served from the `stats` endpoints; these require an API key from the dashboard."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -24,7 +36,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "cosmetic": {

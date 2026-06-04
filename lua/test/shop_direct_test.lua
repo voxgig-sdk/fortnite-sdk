@@ -62,14 +62,12 @@ function shop_direct_setup(mockres)
   local env = runner.env_override({
     ["FORTNITE_TEST_SHOP_ENTID"] = {},
     ["FORTNITE_TEST_LIVE"] = "FALSE",
-    ["FORTNITE_APIKEY"] = "NONE",
   })
 
   local live = env["FORTNITE_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["FORTNITE_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

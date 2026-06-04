@@ -83,7 +83,6 @@ def cosmetic_basic_setup(extra)
     "FORTNITE_TEST_COSMETIC_ENTID" => idmap,
     "FORTNITE_TEST_LIVE" => "FALSE",
     "FORTNITE_TEST_EXPLAIN" => "FALSE",
-    "FORTNITE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +94,6 @@ def cosmetic_basic_setup(extra)
   if env["FORTNITE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["FORTNITE_APIKEY"],
       },
       extra || {},
     ])

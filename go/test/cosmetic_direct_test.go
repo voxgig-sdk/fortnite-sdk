@@ -93,14 +93,12 @@ func cosmeticDirectSetup(mockres any) *cosmeticDirectSetupResult {
 	env := envOverride(map[string]any{
 		"FORTNITE_TEST_COSMETIC_ENTID": map[string]any{},
 		"FORTNITE_TEST_LIVE":    "FALSE",
-		"FORTNITE_APIKEY":       "NONE",
 	})
 
 	live := env["FORTNITE_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["FORTNITE_APIKEY"],
 		}
 		client := sdk.NewFortniteSDK(mergedOpts)
 
