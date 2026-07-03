@@ -10,7 +10,7 @@ The PHP SDK for the Fortnite API — an entity-oriented client using PHP convent
 
 ## Install
 ```bash
-composer require voxgig/fortnite-sdk
+composer require voxgig-sdk/fortnite
 ```
 
 

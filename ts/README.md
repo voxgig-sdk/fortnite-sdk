@@ -10,7 +10,7 @@ The TypeScript SDK for the Fortnite API — a type-safe, entity-oriented client 
 
 ## Install
 ```bash
-npm install fortnite
+npm install @voxgig-sdk/fortnite
 ```
 ## Tutorial: your first API call
 

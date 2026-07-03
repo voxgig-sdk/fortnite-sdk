@@ -10,7 +10,7 @@ The Python SDK for the Fortnite API — an entity-oriented client following Pyth
 
 ## Install
 ```bash
-pip install fortnite-sdk
+pip install voxgig-sdk-fortnite
 ```
 
 Or install from source:
