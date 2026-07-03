@@ -119,6 +119,7 @@ func cosmeticBasicSetup(extra map[string]any) *entityTestSetup {
 		"FORTNITE_TEST_COSMETIC_ENTID": idmap,
 		"FORTNITE_TEST_LIVE":      "FALSE",
 		"FORTNITE_TEST_EXPLAIN":   "FALSE",
+		"FORTNITE_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["FORTNITE_TEST_COSMETIC_ENTID"])
@@ -129,6 +130,7 @@ func cosmeticBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["FORTNITE_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["FORTNITE_APIKEY"],
 			},
 			extra,
 		})

@@ -61,12 +61,14 @@ def _cosmetic_direct_setup(mockres):
     env = runner.env_override({
         "FORTNITE_TEST_COSMETIC_ENTID": {},
         "FORTNITE_TEST_LIVE": "FALSE",
+        "FORTNITE_APIKEY": "NONE",
     })
 
     live = env.get("FORTNITE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("FORTNITE_APIKEY"),
         }
         client = FortniteSDK(merged_opts)
         return {

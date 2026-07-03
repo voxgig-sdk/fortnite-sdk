@@ -1,22 +1,8 @@
 # Fortnite SDK
 
-Community-run Fortnite data hub for cosmetics, item shop, player stats and news
+Fortnite API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Fortnite API
-
-[Fortnite-API](https://fortnite-api.com/) is a community-maintained REST service that mirrors Fortnite game data into a clean JSON API. It is updated automatically with each Fortnite patch and is run independently of Epic Games.
-
-What you get from the API:
-
-- Cosmetic catalogue, including unreleased variants
-- Daily and featured item shop inventory (refreshed at midnight UTC)
-- Battle royale player statistics, with optional generated stat images
-- Game news across the available modes
-- Supporting reference data: playlists, minimap with points of interest, banners, AES pak decryption keys, and creator code lookups
-
-Operationally, most read-only endpoints are open, while player-stats endpoints expect an API key issued from the [dashboard](https://dash.fortnite-api.com/). CORS is disabled, so calls should be made server-side. The published health dashboard reports the service running at high reliability with sub-400ms responses.
 
 ## Try it
 
@@ -50,29 +36,31 @@ gem install fortnite-sdk
 luarocks install fortnite-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { FortniteSDK } from 'fortnite'
 
-const client = new FortniteSDK({})
+const client = new FortniteSDK({
+  apikey: process.env.FORTNITE_APIKEY,
+})
 
 // List all cosmetics
 const cosmetics = await client.Cosmetic().list()
+console.log(cosmetics.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -102,9 +90,9 @@ The API exposes 3 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Cosmetic** | Fortnite cosmetic items (outfits, back blings, pickaxes, emotes, etc.), including unreleased variants, served from the `/v2/cosmetics` family of endpoints. | `/cosmetics/br` |
-| **Shop** | Snapshots of the in-game item shop — daily and featured inventory refreshed at midnight UTC, served from the `shop` endpoints. | `/shop/br` |
-| **Statistic** | Battle royale player statistics keyed by account, served from the `stats` endpoints; these require an API key from the dashboard. | `/stats/br/v2` |
+| **Cosmetic** |  | `/cosmetics/br` |
+| **Shop** |  | `/shop/br` |
+| **Statistic** |  | `/stats/br/v2` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -114,12 +102,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from fortnite_sdk import FortniteSDK
 
-client = FortniteSDK({})
+client = FortniteSDK({
+    "apikey": os.environ.get("FORTNITE_APIKEY"),
+})
 
 # List all cosmetics
-cosmetics, err = client.Cosmetic(None).list(None, None)
+cosmetics, err = client.Cosmetic().list()
+print(cosmetics)
 ```
 
 ### PHP
@@ -128,10 +120,13 @@ cosmetics, err = client.Cosmetic(None).list(None, None)
 <?php
 require_once 'fortnite_sdk.php';
 
-$client = new FortniteSDK([]);
+$client = new FortniteSDK([
+    "apikey" => getenv("FORTNITE_APIKEY"),
+]);
 
 // List all cosmetics
-[$cosmetics, $err] = $client->Cosmetic(null)->list(null, null);
+[$cosmetics, $err] = $client->Cosmetic()->list();
+print_r($cosmetics);
 ```
 
 ### Golang
@@ -139,10 +134,13 @@ $client = new FortniteSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/fortnite-sdk/go"
 
-client := sdk.NewFortniteSDK(map[string]any{})
+client := sdk.NewFortniteSDK(map[string]any{
+    "apikey": os.Getenv("FORTNITE_APIKEY"),
+})
 
 // List all cosmetics
 cosmetics, err := client.Cosmetic(nil).List(nil, nil)
+fmt.Println(cosmetics)
 ```
 
 ### Ruby
@@ -150,10 +148,13 @@ cosmetics, err := client.Cosmetic(nil).List(nil, nil)
 ```ruby
 require_relative "Fortnite_sdk"
 
-client = FortniteSDK.new({})
+client = FortniteSDK.new({
+  "apikey" => ENV["FORTNITE_APIKEY"],
+})
 
 # List all cosmetics
-cosmetics, err = client.Cosmetic(nil).list(nil, nil)
+cosmetics, err = client.Cosmetic().list
+puts cosmetics
 ```
 
 ### Lua
@@ -161,10 +162,13 @@ cosmetics, err = client.Cosmetic(nil).list(nil, nil)
 ```lua
 local sdk = require("fortnite_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("FORTNITE_APIKEY"),
+})
 
 -- List all cosmetics
-local cosmetics, err = client:Cosmetic(nil):list(nil, nil)
+local cosmetics, err = client:Cosmetic():list()
+print(cosmetics)
 ```
 
 ## Unit testing in offline mode
@@ -183,25 +187,21 @@ const result = await client.Cosmetic().load({ id: 'test01' })
 ### Python
 
 ```python
-client = FortniteSDK.test(None, None)
-result, err = client.Cosmetic(None).load(
-    {"id": "test01"}, None
-)
+client = FortniteSDK.test()
+result, err = client.Cosmetic().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = FortniteSDK::test(null, null);
-[$result, $err] = $client->Cosmetic(null)->load(
-    ["id" => "test01"], null
-);
+$client = FortniteSDK::test();
+[$result, $err] = $client->Cosmetic()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Cosmetic(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -210,19 +210,15 @@ result, err := client.Cosmetic(nil).Load(
 ### Ruby
 
 ```ruby
-client = FortniteSDK.test(nil, nil)
-result, err = client.Cosmetic(nil).load(
-  { "id" => "test01" }, nil
-)
+client = FortniteSDK.test
+result, err = client.Cosmetic().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Cosmetic(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Cosmetic():load({ id = "test01" })
 ```
 
 ## How it works
@@ -326,16 +322,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Fortnite API
-
-- Upstream: [https://fortnite-api.com/](https://fortnite-api.com/)
-- API docs: [https://dash.fortnite-api.com/](https://dash.fortnite-api.com/)
-
-- Independent, community-driven project — not affiliated with or endorsed by Epic Games.
-- All Fortnite trademarks and game data belong to Epic Games.
-- Some endpoints (notably player stats) require a free API key obtained from the dashboard account section.
-- CORS is disabled on the endpoints; use the API from a server-side context.
 
 ---
 

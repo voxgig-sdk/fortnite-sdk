@@ -91,6 +91,7 @@ def _statistic_basic_setup(extra):
         "FORTNITE_TEST_STATISTIC_ENTID": idmap,
         "FORTNITE_TEST_LIVE": "FALSE",
         "FORTNITE_TEST_EXPLAIN": "FALSE",
+        "FORTNITE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -101,6 +102,7 @@ def _statistic_basic_setup(extra):
     if env.get("FORTNITE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("FORTNITE_APIKEY"),
             },
             extra or {},
         ])
