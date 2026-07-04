@@ -43,8 +43,7 @@ class CosmeticEntityTest < Minitest::Test
     cosmetic_ref01_ent = client.Cosmetic(nil)
     cosmetic_ref01_match = {}
 
-    cosmetic_ref01_list_result, err = cosmetic_ref01_ent.list(cosmetic_ref01_match, nil)
-    assert_nil err
+    cosmetic_ref01_list_result = cosmetic_ref01_ent.list(cosmetic_ref01_match, nil)
     assert cosmetic_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def cosmetic_basic_setup(extra)
     "FORTNITE_TEST_COSMETIC_ENTID" => idmap,
     "FORTNITE_TEST_LIVE" => "FALSE",
     "FORTNITE_TEST_EXPLAIN" => "FALSE",
-    "FORTNITE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def cosmetic_basic_setup(extra)
   if env["FORTNITE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["FORTNITE_APIKEY"],
       },
       extra || {},
     ])

@@ -49,8 +49,7 @@ class TestShopEntity:
         # LOAD
         shop_ref01_ent = client.Shop(None)
         shop_ref01_match_dt0 = {}
-        shop_ref01_data_dt0_loaded, err = shop_ref01_ent.load(shop_ref01_match_dt0, None)
-        assert err is None
+        shop_ref01_data_dt0_loaded = shop_ref01_ent.load(shop_ref01_match_dt0, None)
         assert shop_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _shop_basic_setup(extra):
         "FORTNITE_TEST_SHOP_ENTID": idmap,
         "FORTNITE_TEST_LIVE": "FALSE",
         "FORTNITE_TEST_EXPLAIN": "FALSE",
-        "FORTNITE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _shop_basic_setup(extra):
     if env.get("FORTNITE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FORTNITE_APIKEY"),
             },
             extra or {},
         ])

@@ -9,12 +9,9 @@ The Lua SDK for the Fortnite API — an entity-oriented client using Lua convent
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-fortnite
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/fortnite-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("fortnite_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("FORTNITE_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List cosmetics
 
 ```lua
-local result, err = client:Cosmetic():list()
+local result, err = client:cosmetic():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Fortnite():load({ id = "test01" })
+local result, err = client:cosmetic():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -127,7 +122,6 @@ Create a `.env.local` file at the project root:
 
 ```
 FORTNITE_TEST_LIVE=TRUE
-FORTNITE_APIKEY=<your-key>
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -257,7 +250,7 @@ API path: `/stats/br/v2`
 
 ### Cosmetic
 
-Create an instance: `const cosmetic = client.Cosmetic()`
+Create an instance: `const cosmetic = client.cosmetic`
 
 #### Operations
 
@@ -280,13 +273,13 @@ Create an instance: `const cosmetic = client.Cosmetic()`
 #### Example: List
 
 ```ts
-const cosmetics = await client.Cosmetic().list()
+const cosmetics = await client.cosmetic.list()
 ```
 
 
 ### Shop
 
-Create an instance: `const shop = client.Shop()`
+Create an instance: `const shop = client.shop`
 
 #### Operations
 
@@ -304,13 +297,13 @@ Create an instance: `const shop = client.Shop()`
 #### Example: Load
 
 ```ts
-const shop = await client.Shop().load({ id: 'shop_id' })
+const shop = await client.shop.load({ id: 'shop_id' })
 ```
 
 
 ### Statistic
 
-Create an instance: `const statistic = client.Statistic()`
+Create an instance: `const statistic = client.statistic`
 
 #### Operations
 
@@ -328,7 +321,7 @@ Create an instance: `const statistic = client.Statistic()`
 #### Example: Load
 
 ```ts
-const statistic = await client.Statistic().load({ id: 'statistic_id' })
+const statistic = await client.statistic.load({ id: 'statistic_id' })
 ```
 
 
@@ -403,11 +396,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local cosmetic = client:cosmetic()
+cosmetic:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- cosmetic:data_get() now returns the loaded cosmetic data
+-- cosmetic:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

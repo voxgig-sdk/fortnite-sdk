@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch ShopLoadMatch
+---@param ctrl? table
+---@return Shop
+---@return string? err
 function ShopEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

@@ -244,18 +244,57 @@ end
 
 
 
+-- Idiomatic facade: client:cosmetic():list() / client:cosmetic():load({ id = ... })
+function FortniteSDK:cosmetic(data)
+  local EntityMod = require("entity.cosmetic_entity")
+  if data == nil then
+    if self._cosmetic == nil then
+      self._cosmetic = EntityMod.new(self, nil)
+    end
+    return self._cosmetic
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:cosmetic() instead.
 function FortniteSDK:Cosmetic(data)
   local EntityMod = require("entity.cosmetic_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:shop():list() / client:shop():load({ id = ... })
+function FortniteSDK:shop(data)
+  local EntityMod = require("entity.shop_entity")
+  if data == nil then
+    if self._shop == nil then
+      self._shop = EntityMod.new(self, nil)
+    end
+    return self._shop
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:shop() instead.
 function FortniteSDK:Shop(data)
   local EntityMod = require("entity.shop_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:statistic():list() / client:statistic():load({ id = ... })
+function FortniteSDK:statistic(data)
+  local EntityMod = require("entity.statistic_entity")
+  if data == nil then
+    if self._statistic == nil then
+      self._statistic = EntityMod.new(self, nil)
+    end
+    return self._statistic
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:statistic() instead.
 function FortniteSDK:Statistic(data)
   local EntityMod = require("entity.statistic_entity")
   return EntityMod.new(self, data)

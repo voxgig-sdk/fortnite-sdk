@@ -50,8 +50,7 @@ class TestCosmeticEntity:
         cosmetic_ref01_ent = client.Cosmetic(None)
         cosmetic_ref01_match = {}
 
-        cosmetic_ref01_list_result, err = cosmetic_ref01_ent.list(cosmetic_ref01_match, None)
-        assert err is None
+        cosmetic_ref01_list_result = cosmetic_ref01_ent.list(cosmetic_ref01_match, None)
         assert isinstance(cosmetic_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _cosmetic_basic_setup(extra):
         "FORTNITE_TEST_COSMETIC_ENTID": idmap,
         "FORTNITE_TEST_LIVE": "FALSE",
         "FORTNITE_TEST_EXPLAIN": "FALSE",
-        "FORTNITE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _cosmetic_basic_setup(extra):
     if env.get("FORTNITE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FORTNITE_APIKEY"),
             },
             extra or {},
         ])

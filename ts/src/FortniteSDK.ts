@@ -4,6 +4,8 @@ import { CosmeticEntity } from './entity/CosmeticEntity'
 import { ShopEntity } from './entity/ShopEntity'
 import { StatisticEntity } from './entity/StatisticEntity'
 
+export type * from './FortniteTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -204,18 +206,42 @@ class FortniteSDK {
 
 
 
+  _cosmetic?: CosmeticEntity
+
+  // Idiomatic facade: `client.cosmetic.list()` / `client.cosmetic.load({ id })`.
+  get cosmetic(): CosmeticEntity {
+    return (this._cosmetic ??= new CosmeticEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.cosmetic` instead. */
   Cosmetic(data?: any) {
     const self = this
     return new CosmeticEntity(self,data)
   }
 
 
+  _shop?: ShopEntity
+
+  // Idiomatic facade: `client.shop.list()` / `client.shop.load({ id })`.
+  get shop(): ShopEntity {
+    return (this._shop ??= new ShopEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.shop` instead. */
   Shop(data?: any) {
     const self = this
     return new ShopEntity(self,data)
   }
 
 
+  _statistic?: StatisticEntity
+
+  // Idiomatic facade: `client.statistic.list()` / `client.statistic.load({ id })`.
+  get statistic(): StatisticEntity {
+    return (this._statistic ??= new StatisticEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.statistic` instead. */
   Statistic(data?: any) {
     const self = this
     return new StatisticEntity(self,data)

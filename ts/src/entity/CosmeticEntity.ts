@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Cosmetic,
+  CosmeticListMatch,
+} from '../FortniteTypes'
 
 // TODO: needs Entity superclass
-class CosmeticEntity extends FortniteEntityBase {
+class CosmeticEntity extends FortniteEntityBase<Cosmetic> {
 
   constructor(client: FortniteSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class CosmeticEntity extends FortniteEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: CosmeticListMatch, ctrl?: Control): Promise<Cosmetic[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class CosmeticEntity extends FortniteEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Cosmetic[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

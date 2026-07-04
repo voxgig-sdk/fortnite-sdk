@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Statistic,
+  StatisticLoadMatch,
+} from '../FortniteTypes'
 
 // TODO: needs Entity superclass
-class StatisticEntity extends FortniteEntityBase {
+class StatisticEntity extends FortniteEntityBase<Statistic> {
 
   constructor(client: FortniteSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class StatisticEntity extends FortniteEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: StatisticLoadMatch, ctrl?: Control): Promise<Statistic> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class StatisticEntity extends FortniteEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Statistic> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

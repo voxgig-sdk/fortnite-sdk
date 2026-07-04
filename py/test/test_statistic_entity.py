@@ -49,8 +49,7 @@ class TestStatisticEntity:
         # LOAD
         statistic_ref01_ent = client.Statistic(None)
         statistic_ref01_match_dt0 = {}
-        statistic_ref01_data_dt0_loaded, err = statistic_ref01_ent.load(statistic_ref01_match_dt0, None)
-        assert err is None
+        statistic_ref01_data_dt0_loaded = statistic_ref01_ent.load(statistic_ref01_match_dt0, None)
         assert statistic_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _statistic_basic_setup(extra):
         "FORTNITE_TEST_STATISTIC_ENTID": idmap,
         "FORTNITE_TEST_LIVE": "FALSE",
         "FORTNITE_TEST_EXPLAIN": "FALSE",
-        "FORTNITE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _statistic_basic_setup(extra):
     if env.get("FORTNITE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FORTNITE_APIKEY"),
             },
             extra or {},
         ])

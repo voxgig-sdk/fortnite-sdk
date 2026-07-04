@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'FORTNITE_TEST_COSMETIC_ENTID': idmap,
     'FORTNITE_TEST_LIVE': 'FALSE',
     'FORTNITE_TEST_EXPLAIN': 'FALSE',
-    'FORTNITE_APIKEY': 'NONE',
   })
 
   idmap = env['FORTNITE_TEST_COSMETIC_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new FortniteSDK(merge([
       {
-        apikey: env.FORTNITE_APIKEY,
       },
       extra
     ]))

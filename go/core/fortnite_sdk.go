@@ -245,16 +245,25 @@ func (sdk *FortniteSDK) Direct(fetchargs map[string]any) (map[string]any, error)
 }
 
 
+// Cosmetic returns a Cosmetic entity bound to this client.
+// Idiomatic usage: client.Cosmetic(nil).List(nil, nil) or
+// client.Cosmetic(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FortniteSDK) Cosmetic(data map[string]any) FortniteEntity {
 	return NewCosmeticEntityFunc(sdk, data)
 }
 
 
+// Shop returns a Shop entity bound to this client.
+// Idiomatic usage: client.Shop(nil).List(nil, nil) or
+// client.Shop(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FortniteSDK) Shop(data map[string]any) FortniteEntity {
 	return NewShopEntityFunc(sdk, data)
 }
 
 
+// Statistic returns a Statistic entity bound to this client.
+// Idiomatic usage: client.Statistic(nil).List(nil, nil) or
+// client.Statistic(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FortniteSDK) Statistic(data map[string]any) FortniteEntity {
 	return NewStatisticEntityFunc(sdk, data)
 }

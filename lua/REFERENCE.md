@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -92,7 +91,7 @@ same parameters as `direct()`.
 ## CosmeticEntity
 
 ```lua
-local cosmetic = client:Cosmetic(nil)
+local cosmetic = client:cosmetic(nil)
 ```
 
 ### Fields
@@ -114,7 +113,7 @@ local cosmetic = client:Cosmetic(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Cosmetic():list()
+local results, err = client:cosmetic():list()
 ```
 
 ### Common Methods
@@ -150,7 +149,7 @@ Return the entity name.
 ## ShopEntity
 
 ```lua
-local shop = client:Shop(nil)
+local shop = client:shop(nil)
 ```
 
 ### Fields
@@ -167,7 +166,7 @@ local shop = client:Shop(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Shop():load({ id = "shop_id" })
+local result, err = client:shop():load({ id = "shop_id" })
 ```
 
 ### Common Methods
@@ -203,7 +202,7 @@ Return the entity name.
 ## StatisticEntity
 
 ```lua
-local statistic = client:Statistic(nil)
+local statistic = client:statistic(nil)
 ```
 
 ### Fields
@@ -220,7 +219,7 @@ local statistic = client:Statistic(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Statistic():load({ id = "statistic_id" })
+local result, err = client:statistic():load({ id = "statistic_id" })
 ```
 
 ### Common Methods

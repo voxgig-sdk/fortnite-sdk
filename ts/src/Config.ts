@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://fortnite-api.com/v2',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

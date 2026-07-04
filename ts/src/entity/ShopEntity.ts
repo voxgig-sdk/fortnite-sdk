@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Shop,
+  ShopLoadMatch,
+} from '../FortniteTypes'
 
 // TODO: needs Entity superclass
-class ShopEntity extends FortniteEntityBase {
+class ShopEntity extends FortniteEntityBase<Shop> {
 
   constructor(client: FortniteSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class ShopEntity extends FortniteEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: ShopLoadMatch, ctrl?: Control): Promise<Shop> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class ShopEntity extends FortniteEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Shop> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

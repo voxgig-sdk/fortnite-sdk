@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -134,7 +133,7 @@ Alias for `FortniteSDK.test()`.
 ## CosmeticEntity
 
 ```ts
-const cosmetic = client.Cosmetic()
+const cosmetic = client.cosmetic
 ```
 
 ### Fields
@@ -156,7 +155,7 @@ const cosmetic = client.Cosmetic()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Cosmetic().list()
+const results = await client.cosmetic.list()
 ```
 
 ### Common Methods
@@ -190,7 +189,7 @@ Return a copy of the entity options.
 ## ShopEntity
 
 ```ts
-const shop = client.Shop()
+const shop = client.shop
 ```
 
 ### Fields
@@ -207,7 +206,7 @@ const shop = client.Shop()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Shop().load({ id: 'shop_id' })
+const result = await client.shop.load({ id: 'shop_id' })
 ```
 
 ### Common Methods
@@ -241,7 +240,7 @@ Return a copy of the entity options.
 ## StatisticEntity
 
 ```ts
-const statistic = client.Statistic()
+const statistic = client.statistic
 ```
 
 ### Fields
@@ -258,7 +257,7 @@ const statistic = client.Statistic()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Statistic().load({ id: 'statistic_id' })
+const result = await client.statistic.load({ id: 'statistic_id' })
 ```
 
 ### Common Methods

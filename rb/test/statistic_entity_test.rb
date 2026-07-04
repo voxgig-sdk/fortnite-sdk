@@ -42,8 +42,7 @@ class StatisticEntityTest < Minitest::Test
     # LOAD
     statistic_ref01_ent = client.Statistic(nil)
     statistic_ref01_match_dt0 = {}
-    statistic_ref01_data_dt0_loaded, err = statistic_ref01_ent.load(statistic_ref01_match_dt0, nil)
-    assert_nil err
+    statistic_ref01_data_dt0_loaded = statistic_ref01_ent.load(statistic_ref01_match_dt0, nil)
     assert !statistic_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def statistic_basic_setup(extra)
     "FORTNITE_TEST_STATISTIC_ENTID" => idmap,
     "FORTNITE_TEST_LIVE" => "FALSE",
     "FORTNITE_TEST_EXPLAIN" => "FALSE",
-    "FORTNITE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def statistic_basic_setup(extra)
   if env["FORTNITE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["FORTNITE_APIKEY"],
       },
       extra || {},
     ])
