@@ -133,7 +133,7 @@ Alias for `FortniteSDK.test()`.
 ## CosmeticEntity
 
 ```ts
-const cosmetic = client.cosmetic
+const cosmetic = client.Cosmetic()
 ```
 
 ### Fields
@@ -155,7 +155,7 @@ const cosmetic = client.cosmetic
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.cosmetic.list()
+const results = await client.Cosmetic().list()
 ```
 
 ### Common Methods
@@ -189,7 +189,7 @@ Return a copy of the entity options.
 ## ShopEntity
 
 ```ts
-const shop = client.shop
+const shop = client.Shop()
 ```
 
 ### Fields
@@ -206,7 +206,7 @@ const shop = client.shop
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.shop.load({ id: 'shop_id' })
+const result = await client.Shop().load({ id: 'shop_id' })
 ```
 
 ### Common Methods
@@ -240,7 +240,7 @@ Return a copy of the entity options.
 ## StatisticEntity
 
 ```ts
-const statistic = client.statistic
+const statistic = client.Statistic()
 ```
 
 ### Fields
@@ -257,7 +257,7 @@ const statistic = client.statistic
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.statistic.load({ id: 'statistic_id' })
+const result = await client.Statistic().load({ id: 'statistic_id' })
 ```
 
 ### Common Methods

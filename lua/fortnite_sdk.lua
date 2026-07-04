@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:cosmetic():list() / client:cosmetic():load({ id = ... })
-function FortniteSDK:cosmetic(data)
+-- Idiomatic facade: client:Cosmetic():list() / client:Cosmetic():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function FortniteSDK:Cosmetic(data)
   local EntityMod = require("entity.cosmetic_entity")
   if data == nil then
     if self._cosmetic == nil then
@@ -256,15 +257,10 @@ function FortniteSDK:cosmetic(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:cosmetic() instead.
-function FortniteSDK:Cosmetic(data)
-  local EntityMod = require("entity.cosmetic_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:shop():list() / client:shop():load({ id = ... })
-function FortniteSDK:shop(data)
+-- Idiomatic facade: client:Shop():list() / client:Shop():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function FortniteSDK:Shop(data)
   local EntityMod = require("entity.shop_entity")
   if data == nil then
     if self._shop == nil then
@@ -275,15 +271,10 @@ function FortniteSDK:shop(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:shop() instead.
-function FortniteSDK:Shop(data)
-  local EntityMod = require("entity.shop_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:statistic():list() / client:statistic():load({ id = ... })
-function FortniteSDK:statistic(data)
+-- Idiomatic facade: client:Statistic():list() / client:Statistic():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function FortniteSDK:Statistic(data)
   local EntityMod = require("entity.statistic_entity")
   if data == nil then
     if self._statistic == nil then
@@ -291,12 +282,6 @@ function FortniteSDK:statistic(data)
     end
     return self._statistic
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:statistic() instead.
-function FortniteSDK:Statistic(data)
-  local EntityMod = require("entity.statistic_entity")
   return EntityMod.new(self, data)
 end
 

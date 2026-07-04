@@ -94,7 +94,7 @@ same parameters as `direct()`. Raises on error.
 ## CosmeticEntity
 
 ```ruby
-cosmetic = client.cosmetic
+cosmetic = client.Cosmetic
 ```
 
 ### Fields
@@ -116,7 +116,7 @@ cosmetic = client.cosmetic
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.cosmetic.list(nil)
+results = client.Cosmetic.list(nil)
 ```
 
 ### Common Methods
@@ -152,7 +152,7 @@ Return the entity name.
 ## ShopEntity
 
 ```ruby
-shop = client.shop
+shop = client.Shop
 ```
 
 ### Fields
@@ -169,7 +169,7 @@ shop = client.shop
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.shop.load({ "id" => "shop_id" })
+result = client.Shop.load({ "id" => "shop_id" })
 ```
 
 ### Common Methods
@@ -205,7 +205,7 @@ Return the entity name.
 ## StatisticEntity
 
 ```ruby
-statistic = client.statistic
+statistic = client.Statistic
 ```
 
 ### Fields
@@ -222,7 +222,7 @@ statistic = client.statistic
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.statistic.load({ "id" => "statistic_id" })
+result = client.Statistic.load({ "id" => "statistic_id" })
 ```
 
 ### Common Methods

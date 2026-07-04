@@ -4,55 +4,53 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Cosmetic:
-    added: Optional[str] = None
-    description: Optional[str] = None
-    id: Optional[str] = None
-    image: Optional[dict] = None
-    name: Optional[str] = None
-    rarity: Optional[dict] = None
-    type: Optional[dict] = None
+class Cosmetic(TypedDict, total=False):
+    added: str
+    description: str
+    id: str
+    image: dict
+    name: str
+    rarity: dict
+    type: dict
 
 
-@dataclass
-class CosmeticListMatch:
-    added: Optional[str] = None
-    description: Optional[str] = None
-    id: Optional[str] = None
-    image: Optional[dict] = None
-    name: Optional[str] = None
-    rarity: Optional[dict] = None
-    type: Optional[dict] = None
+class CosmeticListMatch(TypedDict, total=False):
+    added: str
+    description: str
+    id: str
+    image: dict
+    name: str
+    rarity: dict
+    type: dict
 
 
-@dataclass
-class Shop:
-    data: Optional[dict] = None
-    status: Optional[int] = None
+class Shop(TypedDict, total=False):
+    data: dict
+    status: int
 
 
-@dataclass
-class ShopLoadMatch:
-    data: Optional[dict] = None
-    status: Optional[int] = None
+class ShopLoadMatch(TypedDict, total=False):
+    data: dict
+    status: int
 
 
-@dataclass
-class Statistic:
-    data: Optional[dict] = None
-    status: Optional[int] = None
+class Statistic(TypedDict, total=False):
+    data: dict
+    status: int
 
 
-@dataclass
-class StatisticLoadMatch:
-    data: Optional[dict] = None
-    status: Optional[int] = None
-
+class StatisticLoadMatch(TypedDict, total=False):
+    data: dict
+    status: int

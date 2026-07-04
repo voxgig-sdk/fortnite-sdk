@@ -29,18 +29,16 @@ require_once 'fortnite_sdk.php';
 $client = new FortniteSDK();
 ```
 
-### 2. List cosmetics
+### 2. List cosmetic records
 
 ```php
 try {
-    $result = $client->cosmetic()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Cosmetic records — iterate directly.
+    $cosmetics = $client->Cosmetic()->list();
+    foreach ($cosmetics as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = FortniteSDK::test();
+$client = FortniteSDK::test([
+    "entity" => ["cosmetic" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->cosmetic()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$cosmetic = $client->Cosmetic()->load(["id" => "test01"]);
+print_r($cosmetic);
 ```
 
 ### Use a custom fetch function
@@ -258,7 +260,7 @@ API path: `/stats/br/v2`
 
 ### Cosmetic
 
-Create an instance: `const cosmetic = client.cosmetic`
+Create an instance: `$cosmetic = $client->Cosmetic();`
 
 #### Operations
 
@@ -280,14 +282,15 @@ Create an instance: `const cosmetic = client.cosmetic`
 
 #### Example: List
 
-```ts
-const cosmetics = await client.cosmetic.list()
+```php
+// list() returns an array of Cosmetic records (throws on error).
+$cosmetics = $client->Cosmetic()->list();
 ```
 
 
 ### Shop
 
-Create an instance: `const shop = client.shop`
+Create an instance: `$shop = $client->Shop();`
 
 #### Operations
 
@@ -304,14 +307,15 @@ Create an instance: `const shop = client.shop`
 
 #### Example: Load
 
-```ts
-const shop = await client.shop.load({ id: 'shop_id' })
+```php
+// load() returns the bare Shop record (throws on error).
+$shop = $client->Shop()->load(["id" => "shop_id"]);
 ```
 
 
 ### Statistic
 
-Create an instance: `const statistic = client.statistic`
+Create an instance: `$statistic = $client->Statistic();`
 
 #### Operations
 
@@ -328,8 +332,9 @@ Create an instance: `const statistic = client.statistic`
 
 #### Example: Load
 
-```ts
-const statistic = await client.statistic.load({ id: 'statistic_id' })
+```php
+// load() returns the bare Statistic record (throws on error).
+$statistic = $client->Statistic()->load(["id" => "statistic_id"]);
 ```
 
 
@@ -404,7 +409,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$cosmetic = $client->cosmetic();
+$cosmetic = $client->Cosmetic();
 $cosmetic->load(["id" => "example_id"]);
 
 // $cosmetic->dataGet() now returns the loaded cosmetic data

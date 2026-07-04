@@ -208,39 +208,21 @@ class FortniteSDK
   end
 
 
-  # Idiomatic facade: client.cosmetic.list / client.cosmetic.load({ "id" => ... })
-  def cosmetic
-    require_relative 'entity/cosmetic_entity'
-    @cosmetic ||= CosmeticEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.cosmetic instead.
+  # Canonical facade: client.Cosmetic.list / client.Cosmetic.load({ "id" => ... })
   def Cosmetic(data = nil)
     require_relative 'entity/cosmetic_entity'
     CosmeticEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.shop.list / client.shop.load({ "id" => ... })
-  def shop
-    require_relative 'entity/shop_entity'
-    @shop ||= ShopEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.shop instead.
+  # Canonical facade: client.Shop.list / client.Shop.load({ "id" => ... })
   def Shop(data = nil)
     require_relative 'entity/shop_entity'
     ShopEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.statistic.list / client.statistic.load({ "id" => ... })
-  def statistic
-    require_relative 'entity/statistic_entity'
-    @statistic ||= StatisticEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.statistic instead.
+  # Canonical facade: client.Statistic.list / client.Statistic.load({ "id" => ... })
   def Statistic(data = nil)
     require_relative 'entity/statistic_entity'
     StatisticEntity.new(self, data)

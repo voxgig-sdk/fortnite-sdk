@@ -233,10 +233,10 @@ class FortniteSDK
 
     private $_cosmetic = null;
 
-    // Idiomatic facade: $client->cosmetic()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Cosmetic() (PHP method
-    // names are case-insensitive).
-    public function cosmetic($data = null)
+    // Canonical facade: $client->Cosmetic()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->cosmetic()
+    // resolves here too.
+    public function Cosmetic($data = null)
     {
         require_once __DIR__ . '/entity/cosmetic_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class FortniteSDK
 
     private $_shop = null;
 
-    // Idiomatic facade: $client->shop()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Shop() (PHP method
-    // names are case-insensitive).
-    public function shop($data = null)
+    // Canonical facade: $client->Shop()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->shop()
+    // resolves here too.
+    public function Shop($data = null)
     {
         require_once __DIR__ . '/entity/shop_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class FortniteSDK
 
     private $_statistic = null;
 
-    // Idiomatic facade: $client->statistic()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Statistic() (PHP method
-    // names are case-insensitive).
-    public function statistic($data = null)
+    // Canonical facade: $client->Statistic()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->statistic()
+    // resolves here too.
+    public function Statistic($data = null)
     {
         require_once __DIR__ . '/entity/statistic_entity.php';
         if ($data === null) {

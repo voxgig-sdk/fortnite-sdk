@@ -28,16 +28,14 @@ require_relative "Fortnite_sdk"
 client = FortniteSDK.new
 ```
 
-### 2. List cosmetics
+### 2. List cosmetic records
 
 ```ruby
 begin
-  result = client.cosmetic.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Cosmetic records — iterate directly.
+  cosmetics = client.Cosmetic.list
+  cosmetics.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = FortniteSDK.test
+client = FortniteSDK.test({
+  "entity" => { "cosmetic" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.cosmetic.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+cosmetic = client.Cosmetic.load({ "id" => "test01" })
+puts cosmetic
 ```
 
 ### Use a custom fetch function
@@ -253,7 +255,7 @@ API path: `/stats/br/v2`
 
 ### Cosmetic
 
-Create an instance: `const cosmetic = client.cosmetic`
+Create an instance: `cosmetic = client.Cosmetic`
 
 #### Operations
 
@@ -275,14 +277,15 @@ Create an instance: `const cosmetic = client.cosmetic`
 
 #### Example: List
 
-```ts
-const cosmetics = await client.cosmetic.list()
+```ruby
+# list returns an Array of Cosmetic records (raises on error).
+cosmetics = client.Cosmetic.list
 ```
 
 
 ### Shop
 
-Create an instance: `const shop = client.shop`
+Create an instance: `shop = client.Shop`
 
 #### Operations
 
@@ -299,14 +302,15 @@ Create an instance: `const shop = client.shop`
 
 #### Example: Load
 
-```ts
-const shop = await client.shop.load({ id: 'shop_id' })
+```ruby
+# load returns the bare Shop record (raises on error).
+shop = client.Shop.load({ "id" => "shop_id" })
 ```
 
 
 ### Statistic
 
-Create an instance: `const statistic = client.statistic`
+Create an instance: `statistic = client.Statistic`
 
 #### Operations
 
@@ -323,8 +327,9 @@ Create an instance: `const statistic = client.statistic`
 
 #### Example: Load
 
-```ts
-const statistic = await client.statistic.load({ id: 'statistic_id' })
+```ruby
+# load returns the bare Statistic record (raises on error).
+statistic = client.Statistic.load({ "id" => "statistic_id" })
 ```
 
 
@@ -399,7 +404,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-cosmetic = client.cosmetic
+cosmetic = client.Cosmetic
 cosmetic.load({ "id" => "example_id" })
 
 # cosmetic.data_get now returns the loaded cosmetic data

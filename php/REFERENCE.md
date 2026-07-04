@@ -93,7 +93,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CosmeticEntity
 
 ```php
-$cosmetic = $client->cosmetic();
+$cosmetic = $client->Cosmetic();
 ```
 
 ### Fields
@@ -115,7 +115,7 @@ $cosmetic = $client->cosmetic();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->cosmetic()->list([]);
+$results = $client->Cosmetic()->list([]);
 ```
 
 ### Common Methods
@@ -151,7 +151,7 @@ Return the entity name.
 ## ShopEntity
 
 ```php
-$shop = $client->shop();
+$shop = $client->Shop();
 ```
 
 ### Fields
@@ -168,7 +168,7 @@ $shop = $client->shop();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->shop()->load(["id" => "shop_id"]);
+$result = $client->Shop()->load(["id" => "shop_id"]);
 ```
 
 ### Common Methods
@@ -204,7 +204,7 @@ Return the entity name.
 ## StatisticEntity
 
 ```php
-$statistic = $client->statistic();
+$statistic = $client->Statistic();
 ```
 
 ### Fields
@@ -221,7 +221,7 @@ $statistic = $client->statistic();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->statistic()->load(["id" => "statistic_id"]);
+$result = $client->Statistic()->load(["id" => "statistic_id"]);
 ```
 
 ### Common Methods

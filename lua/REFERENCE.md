@@ -91,7 +91,7 @@ same parameters as `direct()`.
 ## CosmeticEntity
 
 ```lua
-local cosmetic = client:cosmetic(nil)
+local cosmetic = client:Cosmetic(nil)
 ```
 
 ### Fields
@@ -113,7 +113,7 @@ local cosmetic = client:cosmetic(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:cosmetic():list()
+local results, err = client:Cosmetic():list()
 ```
 
 ### Common Methods
@@ -149,7 +149,7 @@ Return the entity name.
 ## ShopEntity
 
 ```lua
-local shop = client:shop(nil)
+local shop = client:Shop(nil)
 ```
 
 ### Fields
@@ -166,7 +166,7 @@ local shop = client:shop(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:shop():load({ id = "shop_id" })
+local result, err = client:Shop():load({ id = "shop_id" })
 ```
 
 ### Common Methods
@@ -202,7 +202,7 @@ Return the entity name.
 ## StatisticEntity
 
 ```lua
-local statistic = client:statistic(nil)
+local statistic = client:Statistic(nil)
 ```
 
 ### Fields
@@ -219,7 +219,7 @@ local statistic = client:statistic(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:statistic():load({ id = "statistic_id" })
+local result, err = client:Statistic():load({ id = "statistic_id" })
 ```
 
 ### Common Methods

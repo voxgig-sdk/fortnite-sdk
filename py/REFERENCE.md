@@ -88,7 +88,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## CosmeticEntity
 
 ```python
-cosmetic = client.cosmetic
+cosmetic = client.Cosmetic()
 ```
 
 ### Fields
@@ -110,7 +110,9 @@ cosmetic = client.cosmetic
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.cosmetic.list({})
+results = client.Cosmetic().list({})
+for cosmetic in results:
+    print(cosmetic)
 ```
 
 ### Common Methods
@@ -145,7 +147,7 @@ Return the entity name.
 ## ShopEntity
 
 ```python
-shop = client.shop
+shop = client.Shop()
 ```
 
 ### Fields
@@ -162,7 +164,7 @@ shop = client.shop
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.shop.load({"id": "shop_id"})
+result = client.Shop().load({"id": "shop_id"})
 ```
 
 ### Common Methods
@@ -197,7 +199,7 @@ Return the entity name.
 ## StatisticEntity
 
 ```python
-statistic = client.statistic
+statistic = client.Statistic()
 ```
 
 ### Fields
@@ -214,7 +216,7 @@ statistic = client.statistic
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.statistic.load({"id": "statistic_id"})
+result = client.Statistic().load({"id": "statistic_id"})
 ```
 
 ### Common Methods

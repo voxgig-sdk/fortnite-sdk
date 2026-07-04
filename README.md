@@ -26,9 +26,11 @@ import { FortniteSDK } from '@voxgig-sdk/fortnite'
 
 const client = new FortniteSDK()
 
-// List all cosmetics
-const cosmetics = await client.cosmetic.list()
-console.log(cosmetics.data)
+// List all cosmetics (returns Cosmetic[])
+const cosmetics = await client.Cosmetic().list()
+for (const cosmetic of cosmetics) {
+  console.log(cosmetic)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -85,9 +87,10 @@ from fortnite_sdk import FortniteSDK
 
 client = FortniteSDK()
 
-# List all cosmetics
-cosmetics = client.cosmetic.list()
-print(cosmetics)
+# List all cosmetics (returns a list, raises on error)
+cosmetics = client.Cosmetic().list({})
+for cosmetic in cosmetics:
+    print(cosmetic)
 ```
 
 ### PHP
@@ -98,8 +101,8 @@ require_once 'fortnite_sdk.php';
 
 $client = new FortniteSDK();
 
-// List all cosmetics (throws on error)
-$cosmetics = $client->cosmetic()->list();
+// List all cosmetics (returns an array; throws on error)
+$cosmetics = $client->Cosmetic()->list();
 print_r($cosmetics);
 ```
 
@@ -122,8 +125,8 @@ require_relative "Fortnite_sdk"
 
 client = FortniteSDK.new
 
-# List all cosmetics
-cosmetics = client.cosmetic.list
+# List all cosmetics (returns an Array; raises on error)
+cosmetics = client.Cosmetic.list
 puts cosmetics
 ```
 
@@ -135,7 +138,7 @@ local sdk = require("fortnite_sdk")
 local client = sdk.new()
 
 -- List all cosmetics
-local cosmetics, err = client:cosmetic():list()
+local cosmetics, err = client:Cosmetic():list()
 print(cosmetics)
 ```
 
@@ -148,22 +151,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = FortniteSDK.test()
-const result = await client.cosmetic.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const cosmetic = await client.Cosmetic().load({ id: 'test01' })
+// cosmetic is a bare Cosmetic populated with mock data
+console.log(cosmetic)
 ```
 
 ### Python
 
 ```python
 client = FortniteSDK.test()
-result = client.cosmetic.load({"id": "test01"})
+cosmetic = client.Cosmetic().load({"id": "test01"})
+print(cosmetic)
 ```
 
 ### PHP
 
 ```php
-$client = FortniteSDK::test();
-$result = $client->cosmetic()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = FortniteSDK::test([
+    "entity" => ["cosmetic" => ["test01" => ["id" => "test01"]]],
+]);
+$cosmetic = $client->Cosmetic()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -178,15 +186,18 @@ result, err := client.Cosmetic(nil).Load(
 ### Ruby
 
 ```ruby
-client = FortniteSDK.test
-result = client.cosmetic.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = FortniteSDK.test({
+  "entity" => { "cosmetic" => { "test01" => { "id" => "test01" } } },
+})
+cosmetic = client.Cosmetic.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:cosmetic():load({ id = "test01" })
+local result, err = client:Cosmetic():load({ id = "test01" })
 ```
 
 ## How it works
@@ -234,6 +245,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

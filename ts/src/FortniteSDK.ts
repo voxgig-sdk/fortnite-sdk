@@ -206,42 +206,21 @@ class FortniteSDK {
 
 
 
-  _cosmetic?: CosmeticEntity
-
-  // Idiomatic facade: `client.cosmetic.list()` / `client.cosmetic.load({ id })`.
-  get cosmetic(): CosmeticEntity {
-    return (this._cosmetic ??= new CosmeticEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.cosmetic` instead. */
+  // Entity access: `client.Cosmetic().list()` / `client.Cosmetic().load({ id })`.
   Cosmetic(data?: any) {
     const self = this
     return new CosmeticEntity(self,data)
   }
 
 
-  _shop?: ShopEntity
-
-  // Idiomatic facade: `client.shop.list()` / `client.shop.load({ id })`.
-  get shop(): ShopEntity {
-    return (this._shop ??= new ShopEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.shop` instead. */
+  // Entity access: `client.Shop().list()` / `client.Shop().load({ id })`.
   Shop(data?: any) {
     const self = this
     return new ShopEntity(self,data)
   }
 
 
-  _statistic?: StatisticEntity
-
-  // Idiomatic facade: `client.statistic.list()` / `client.statistic.load({ id })`.
-  get statistic(): StatisticEntity {
-    return (this._statistic ??= new StatisticEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.statistic` instead. */
+  // Entity access: `client.Statistic().list()` / `client.Statistic().load({ id })`.
   Statistic(data?: any) {
     const self = this
     return new StatisticEntity(self,data)

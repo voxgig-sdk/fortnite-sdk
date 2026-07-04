@@ -220,57 +220,27 @@ class FortniteSDK:
         }
 
 
-    @property
-    def cosmetic(self):
-        """Idiomatic facade: client.cosmetic.list() / client.cosmetic.load({"id": ...})."""
-        from entity.cosmetic_entity import CosmeticEntity
-        cached = getattr(self, "_cosmetic", None)
-        if cached is None:
-            cached = CosmeticEntity(self, None)
-            self._cosmetic = cached
-        return cached
-
-    def Cosmetic(self, data=None):
-        # Deprecated: use client.cosmetic instead.
+    def Cosmetic(self, data=None) -> "CosmeticEntity":
+        """Entity factory: client.Cosmetic().list({}) / client.Cosmetic().load({"id": ...})."""
         from entity.cosmetic_entity import CosmeticEntity
         return CosmeticEntity(self, data)
 
 
-    @property
-    def shop(self):
-        """Idiomatic facade: client.shop.list() / client.shop.load({"id": ...})."""
-        from entity.shop_entity import ShopEntity
-        cached = getattr(self, "_shop", None)
-        if cached is None:
-            cached = ShopEntity(self, None)
-            self._shop = cached
-        return cached
-
-    def Shop(self, data=None):
-        # Deprecated: use client.shop instead.
+    def Shop(self, data=None) -> "ShopEntity":
+        """Entity factory: client.Shop().list({}) / client.Shop().load({"id": ...})."""
         from entity.shop_entity import ShopEntity
         return ShopEntity(self, data)
 
 
-    @property
-    def statistic(self):
-        """Idiomatic facade: client.statistic.list() / client.statistic.load({"id": ...})."""
-        from entity.statistic_entity import StatisticEntity
-        cached = getattr(self, "_statistic", None)
-        if cached is None:
-            cached = StatisticEntity(self, None)
-            self._statistic = cached
-        return cached
-
-    def Statistic(self, data=None):
-        # Deprecated: use client.statistic instead.
+    def Statistic(self, data=None) -> "StatisticEntity":
+        """Entity factory: client.Statistic().list({}) / client.Statistic().load({"id": ...})."""
         from entity.statistic_entity import StatisticEntity
         return StatisticEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "FortniteSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -290,3 +260,11 @@ class FortniteSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.cosmetic_entity import CosmeticEntity
+    from entity.shop_entity import ShopEntity
+    from entity.statistic_entity import StatisticEntity

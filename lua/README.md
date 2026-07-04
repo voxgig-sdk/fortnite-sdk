@@ -31,17 +31,17 @@ local sdk = require("fortnite_sdk")
 local client = sdk.new()
 ```
 
-### 2. List cosmetics
+### 2. List cosmetic records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:cosmetic():list()
+local cosmetics, err = client:Cosmetic():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(cosmetics) do
+  print(item["id"], item["name"])
 end
 ```
 
@@ -88,8 +88,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:cosmetic():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Cosmetic():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -191,17 +191,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local cosmetic, err = client:Cosmetic():load({ id = "example_id" })
+    if err then error(err) end
+    -- cosmetic is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -250,7 +255,7 @@ API path: `/stats/br/v2`
 
 ### Cosmetic
 
-Create an instance: `const cosmetic = client.cosmetic`
+Create an instance: `local cosmetic = client:Cosmetic(nil)`
 
 #### Operations
 
@@ -272,14 +277,14 @@ Create an instance: `const cosmetic = client.cosmetic`
 
 #### Example: List
 
-```ts
-const cosmetics = await client.cosmetic.list()
+```lua
+local cosmetics, err = client:Cosmetic():list()
 ```
 
 
 ### Shop
 
-Create an instance: `const shop = client.shop`
+Create an instance: `local shop = client:Shop(nil)`
 
 #### Operations
 
@@ -296,14 +301,14 @@ Create an instance: `const shop = client.shop`
 
 #### Example: Load
 
-```ts
-const shop = await client.shop.load({ id: 'shop_id' })
+```lua
+local shop, err = client:Shop():load({ id = "shop_id" })
 ```
 
 
 ### Statistic
 
-Create an instance: `const statistic = client.statistic`
+Create an instance: `local statistic = client:Statistic(nil)`
 
 #### Operations
 
@@ -320,8 +325,8 @@ Create an instance: `const statistic = client.statistic`
 
 #### Example: Load
 
-```ts
-const statistic = await client.statistic.load({ id: 'statistic_id' })
+```lua
+local statistic, err = client:Statistic():load({ id = "statistic_id" })
 ```
 
 
@@ -396,7 +401,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local cosmetic = client:cosmetic()
+local cosmetic = client:Cosmetic()
 cosmetic:load({ id = "example_id" })
 
 -- cosmetic:data_get() now returns the loaded cosmetic data

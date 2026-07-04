@@ -31,14 +31,16 @@ from fortnite_sdk import FortniteSDK
 client = FortniteSDK()
 ```
 
-### 2. List cosmetics
+### 2. List cosmetic records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.cosmetic.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    cosmetics = client.Cosmetic().list({})
+    for cosmetic in cosmetics:
+        print(cosmetic)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = FortniteSDK.test()
 
-result = client.cosmetic.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+cosmetic = client.Cosmetic().load({"id": "test01"})
+# cosmetic contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -250,7 +253,7 @@ API path: `/stats/br/v2`
 
 ### Cosmetic
 
-Create an instance: `const cosmetic = client.cosmetic`
+Create an instance: `cosmetic = client.Cosmetic()`
 
 #### Operations
 
@@ -272,14 +275,14 @@ Create an instance: `const cosmetic = client.cosmetic`
 
 #### Example: List
 
-```ts
-const cosmetics = await client.cosmetic.list()
+```python
+cosmetics = client.Cosmetic().list({})
 ```
 
 
 ### Shop
 
-Create an instance: `const shop = client.shop`
+Create an instance: `shop = client.Shop()`
 
 #### Operations
 
@@ -296,14 +299,14 @@ Create an instance: `const shop = client.shop`
 
 #### Example: Load
 
-```ts
-const shop = await client.shop.load({ id: 'shop_id' })
+```python
+shop = client.Shop().load({"id": "shop_id"})
 ```
 
 
 ### Statistic
 
-Create an instance: `const statistic = client.statistic`
+Create an instance: `statistic = client.Statistic()`
 
 #### Operations
 
@@ -320,8 +323,8 @@ Create an instance: `const statistic = client.statistic`
 
 #### Example: Load
 
-```ts
-const statistic = await client.statistic.load({ id: 'statistic_id' })
+```python
+statistic = client.Statistic().load({"id": "statistic_id"})
 ```
 
 
@@ -395,7 +398,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-cosmetic = client.cosmetic
+cosmetic = client.Cosmetic()
 cosmetic.load({"id": "example_id"})
 
 # cosmetic.data_get() now returns the loaded cosmetic data
