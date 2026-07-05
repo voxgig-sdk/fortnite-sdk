@@ -98,13 +98,13 @@ local cosmetic = client:Cosmetic(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `added` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `rarity` | ``$OBJECT`` | No |  |
-| `type` | ``$OBJECT`` | No |  |
+| `added` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `string` | No |  |
+| `image` | `table` | No |  |
+| `name` | `string` | No |  |
+| `rarity` | `table` | No |  |
+| `type` | `table` | No |  |
 
 ### Operations
 
@@ -156,8 +156,8 @@ local shop = client:Shop(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
-| `status` | ``$INTEGER`` | No |  |
+| `data` | `table` | No |  |
+| `status` | `number` | No |  |
 
 ### Operations
 
@@ -166,7 +166,7 @@ local shop = client:Shop(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Shop():load({ id = "shop_id" })
+local result, err = client:Shop():load()
 ```
 
 ### Common Methods
@@ -209,8 +209,8 @@ local statistic = client:Statistic(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
-| `status` | ``$INTEGER`` | No |  |
+| `data` | `table` | No |  |
+| `status` | `number` | No |  |
 
 ### Operations
 
@@ -219,7 +219,7 @@ local statistic = client:Statistic(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Statistic():load({ id = "statistic_id" })
+local result, err = client:Statistic():load()
 ```
 
 ### Common Methods

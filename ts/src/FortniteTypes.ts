@@ -15,19 +15,33 @@ export interface Cosmetic {
   type?: Record<string, any>
 }
 
-export type CosmeticListMatch = Partial<Cosmetic>
+export interface CosmeticListMatch {
+  added?: string
+  description?: string
+  id?: string
+  image?: Record<string, any>
+  name?: string
+  rarity?: Record<string, any>
+  type?: Record<string, any>
+}
 
 export interface Shop {
   data?: Record<string, any>
   status?: number
 }
 
-export type ShopLoadMatch = Partial<Shop>
+export interface ShopLoadMatch {
+  data?: Record<string, any>
+  status?: number
+}
 
 export interface Statistic {
   data?: Record<string, any>
   status?: number
 }
 
-export type StatisticLoadMatch = Partial<Statistic>
+export interface StatisticLoadMatch {
+  data?: Record<string, any>
+  status?: number
+}
 

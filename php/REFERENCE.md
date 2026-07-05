@@ -53,11 +53,11 @@ Create a new `ShopEntity` instance. Pass `null` for no initial data.
 
 Create a new `StatisticEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): FortniteUtility`
 
 Return a copy of the SDK utility object.
 
@@ -100,39 +100,39 @@ $cosmetic = $client->Cosmetic();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `added` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `rarity` | ``$OBJECT`` | No |  |
-| `type` | ``$OBJECT`` | No |  |
+| `added` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `string` | No |  |
+| `image` | `array` | No |  |
+| `name` | `string` | No |  |
+| `rarity` | `array` | No |  |
+| `type` | `array` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Cosmetic()->list([]);
+$results = $client->Cosmetic()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -141,7 +141,7 @@ Set the entity match criteria.
 Create a new `CosmeticEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -158,8 +158,8 @@ $shop = $client->Shop();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
-| `status` | ``$INTEGER`` | No |  |
+| `data` | `array` | No |  |
+| `status` | `int` | No |  |
 
 ### Operations
 
@@ -168,24 +168,24 @@ $shop = $client->Shop();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Shop()->load(["id" => "shop_id"]);
+$result = $client->Shop()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -194,7 +194,7 @@ Set the entity match criteria.
 Create a new `ShopEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -211,8 +211,8 @@ $statistic = $client->Statistic();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
-| `status` | ``$INTEGER`` | No |  |
+| `data` | `array` | No |  |
+| `status` | `int` | No |  |
 
 ### Operations
 
@@ -221,24 +221,24 @@ $statistic = $client->Statistic();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Statistic()->load(["id" => "statistic_id"]);
+$result = $client->Statistic()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -247,7 +247,7 @@ Set the entity match criteria.
 Create a new `StatisticEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

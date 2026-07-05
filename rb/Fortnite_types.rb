@@ -41,7 +41,7 @@ Cosmetic = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Cosmetic#list (any subset of Cosmetic fields).
+# Request payload for Cosmetic#list.
 #
 # @!attribute [rw] added
 #   @return [String, nil]
@@ -87,7 +87,7 @@ Shop = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Shop#load (any subset of Shop fields).
+# Request payload for Shop#load.
 #
 # @!attribute [rw] data
 #   @return [Hash, nil]
@@ -113,7 +113,7 @@ Statistic = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Statistic#load (any subset of Statistic fields).
+# Request payload for Statistic#load.
 #
 # @!attribute [rw] data
 #   @return [Hash, nil]

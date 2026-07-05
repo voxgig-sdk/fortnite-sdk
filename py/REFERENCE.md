@@ -95,22 +95,22 @@ cosmetic = client.Cosmetic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `added` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `rarity` | ``$OBJECT`` | No |  |
-| `type` | ``$OBJECT`` | No |  |
+| `added` | `str` | No |  |
+| `description` | `str` | No |  |
+| `id` | `str` | No |  |
+| `image` | `dict` | No |  |
+| `name` | `str` | No |  |
+| `rarity` | `dict` | No |  |
+| `type` | `dict` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Cosmetic().list({})
+results = client.Cosmetic().list()
 for cosmetic in results:
     print(cosmetic)
 ```
@@ -154,8 +154,8 @@ shop = client.Shop()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
-| `status` | ``$INTEGER`` | No |  |
+| `data` | `dict` | No |  |
+| `status` | `int` | No |  |
 
 ### Operations
 
@@ -164,7 +164,7 @@ shop = client.Shop()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Shop().load({"id": "shop_id"})
+result = client.Shop().load()
 ```
 
 ### Common Methods
@@ -206,8 +206,8 @@ statistic = client.Statistic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
-| `status` | ``$INTEGER`` | No |  |
+| `data` | `dict` | No |  |
+| `status` | `int` | No |  |
 
 ### Operations
 
@@ -216,7 +216,7 @@ statistic = client.Statistic()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Statistic().load({"id": "statistic_id"})
+result = client.Statistic().load()
 ```
 
 ### Common Methods

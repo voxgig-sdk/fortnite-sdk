@@ -4,6 +4,8 @@
 
 The PHP SDK for the Fortnite API — an entity-oriented client using PHP conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `$client->Cosmetic()` — with named operations (`list`/`load`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -36,10 +38,41 @@ try {
     // list() returns an array of Cosmetic records — iterate directly.
     $cosmetics = $client->Cosmetic()->list();
     foreach ($cosmetics as $item) {
-        echo $item["id"] . " " . $item["name"] . "\n";
+        echo $item["id"] . " " . $item["added"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
+}
+```
+
+
+## Error handling
+
+Entity operations throw a `\Throwable` on failure, so wrap them in
+`try` / `catch`:
+
+```php
+try {
+    $cosmetics = $client->Cosmetic()->list();
+} catch (\Throwable $err) {
+    echo "Error: " . $err->getMessage();
+}
+```
+
+`direct()` does **not** throw — it returns the result array. Branch on
+`ok`; on failure `status` holds the HTTP status (for error responses) and
+`err` holds a transport error, so read both defensively:
+
+```php
+$result = $client->direct([
+    "path" => "/api/resource/{id}",
+    "method" => "GET",
+    "params" => ["id" => "example_id"],
+]);
+
+if (! $result["ok"]) {
+    $err = $result["err"] ?? null;
+    echo "request failed: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
 }
 ```
 
@@ -63,7 +96,10 @@ if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
 } else {
-    echo "Error: " . $result["err"]->getMessage();
+    // On an HTTP error status there is no err (only a transport failure sets
+    // it), so fall back to the status code.
+    $err = $result["err"] ?? null;
+    echo "Error: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
 }
 ```
 
@@ -84,16 +120,13 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```php
-$client = FortniteSDK::test([
-    "entity" => ["cosmetic" => ["test01" => ["id" => "test01"]]],
-]);
+$client = FortniteSDK::test();
 
-// load() returns the bare mock record (throws on error).
-$cosmetic = $client->Cosmetic()->load(["id" => "test01"]);
+// Entity ops return the bare mock record (throws on error).
+$cosmetic = $client->Cosmetic()->list();
 print_r($cosmetic);
 ```
 
@@ -184,10 +217,7 @@ All entities share the same interface.
 | Method | Signature | Description |
 | --- | --- | --- |
 | `load` | `($reqmatch, $ctrl): array` | Load a single entity by match criteria. |
-| `list` | `($reqmatch, $ctrl): array` | List entities matching the criteria. |
-| `create` | `($reqdata, $ctrl): array` | Create a new entity. |
-| `update` | `($reqdata, $ctrl): array` | Update an existing entity. |
-| `remove` | `($reqmatch, $ctrl): array` | Remove an entity. |
+| `list` | `(?array $reqmatch = null, $ctrl): array` | List entities matching the criteria (call with no argument to list all). |
 | `data_get` | `(): array` | Get entity data. |
 | `data_set` | `($data): void` | Set entity data. |
 | `match_get` | `(): array` | Get entity match criteria. |
@@ -272,13 +302,13 @@ Create an instance: `$cosmetic = $client->Cosmetic();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `added` | ``$STRING`` |  |
-| `description` | ``$STRING`` |  |
-| `id` | ``$STRING`` |  |
-| `image` | ``$OBJECT`` |  |
-| `name` | ``$STRING`` |  |
-| `rarity` | ``$OBJECT`` |  |
-| `type` | ``$OBJECT`` |  |
+| `added` | `string` |  |
+| `description` | `string` |  |
+| `id` | `string` |  |
+| `image` | `array` |  |
+| `name` | `string` |  |
+| `rarity` | `array` |  |
+| `type` | `array` |  |
 
 #### Example: List
 
@@ -302,14 +332,14 @@ Create an instance: `$shop = $client->Shop();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | ``$OBJECT`` |  |
-| `status` | ``$INTEGER`` |  |
+| `data` | `array` |  |
+| `status` | `int` |  |
 
 #### Example: Load
 
 ```php
 // load() returns the bare Shop record (throws on error).
-$shop = $client->Shop()->load(["id" => "shop_id"]);
+$shop = $client->Shop()->load();
 ```
 
 
@@ -327,23 +357,27 @@ Create an instance: `$statistic = $client->Statistic();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | ``$OBJECT`` |  |
-| `status` | ``$INTEGER`` |  |
+| `data` | `array` |  |
+| `status` | `int` |  |
 
 #### Example: Load
 
 ```php
 // load() returns the bare Statistic record (throws on error).
-$statistic = $client->Statistic()->load(["id" => "statistic_id"]);
+$statistic = $client->Statistic()->load();
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -360,8 +394,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as the second element in the return array.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -405,15 +440,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
 $cosmetic = $client->Cosmetic();
-$cosmetic->load(["id" => "example_id"]);
+$cosmetic->list();
 
-// $cosmetic->dataGet() now returns the loaded cosmetic data
-// $cosmetic->matchGet() returns the last match criteria
+// $cosmetic->data_get() now returns the cosmetic data from the last list
+// $cosmetic->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

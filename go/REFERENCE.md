@@ -105,13 +105,13 @@ cosmetic := client.Cosmetic(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `added` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `rarity` | ``$OBJECT`` | No |  |
-| `type` | ``$OBJECT`` | No |  |
+| `added` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `string` | No |  |
+| `image` | `map[string]any` | No |  |
+| `name` | `string` | No |  |
+| `rarity` | `map[string]any` | No |  |
+| `type` | `map[string]any` | No |  |
 
 ### Operations
 
@@ -157,8 +157,8 @@ shop := client.Shop(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
-| `status` | ``$INTEGER`` | No |  |
+| `data` | `map[string]any` | No |  |
+| `status` | `int` | No |  |
 
 ### Operations
 
@@ -167,7 +167,7 @@ shop := client.Shop(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Shop(nil).Load(map[string]any{"id": "shop_id"}, nil)
+result, err := client.Shop(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -204,8 +204,8 @@ statistic := client.Statistic(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
-| `status` | ``$INTEGER`` | No |  |
+| `data` | `map[string]any` | No |  |
+| `status` | `int` | No |  |
 
 ### Operations
 
@@ -214,7 +214,7 @@ statistic := client.Statistic(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Statistic(nil).Load(map[string]any{"id": "statistic_id"}, nil)
+result, err := client.Statistic(nil).Load(nil, nil)
 ```
 
 ### Common Methods

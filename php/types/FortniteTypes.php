@@ -24,7 +24,7 @@ class Cosmetic
     public ?array $type = null;
 }
 
-/** Match filter for Cosmetic#list (any subset of Cosmetic fields). */
+/** Request payload for Cosmetic#list. */
 class CosmeticListMatch
 {
     public ?string $added = null;
@@ -43,7 +43,7 @@ class Shop
     public ?int $status = null;
 }
 
-/** Match filter for Shop#load (any subset of Shop fields). */
+/** Request payload for Shop#load. */
 class ShopLoadMatch
 {
     public ?array $data = null;
@@ -57,7 +57,7 @@ class Statistic
     public ?int $status = null;
 }
 
-/** Match filter for Statistic#load (any subset of Statistic fields). */
+/** Request payload for Statistic#load. */
 class StatisticLoadMatch
 {
     public ?array $data = null;

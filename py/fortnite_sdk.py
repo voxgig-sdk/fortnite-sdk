@@ -221,19 +221,19 @@ class FortniteSDK:
 
 
     def Cosmetic(self, data=None) -> "CosmeticEntity":
-        """Entity factory: client.Cosmetic().list({}) / client.Cosmetic().load({"id": ...})."""
+        """Entity factory: client.Cosmetic().list() / client.Cosmetic().load({"id": ...})."""
         from entity.cosmetic_entity import CosmeticEntity
         return CosmeticEntity(self, data)
 
 
     def Shop(self, data=None) -> "ShopEntity":
-        """Entity factory: client.Shop().list({}) / client.Shop().load({"id": ...})."""
+        """Entity factory: client.Shop().list() / client.Shop().load({"id": ...})."""
         from entity.shop_entity import ShopEntity
         return ShopEntity(self, data)
 
 
     def Statistic(self, data=None) -> "StatisticEntity":
-        """Entity factory: client.Statistic().list({}) / client.Statistic().load({"id": ...})."""
+        """Entity factory: client.Statistic().list() / client.Statistic().load({"id": ...})."""
         from entity.statistic_entity import StatisticEntity
         return StatisticEntity(self, data)
 

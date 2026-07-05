@@ -140,13 +140,13 @@ const cosmetic = client.Cosmetic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `added` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `rarity` | ``$OBJECT`` | No |  |
-| `type` | ``$OBJECT`` | No |  |
+| `added` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `string` | No |  |
+| `image` | `Record<string, any>` | No |  |
+| `name` | `string` | No |  |
+| `rarity` | `Record<string, any>` | No |  |
+| `type` | `Record<string, any>` | No |  |
 
 ### Operations
 
@@ -196,8 +196,8 @@ const shop = client.Shop()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
-| `status` | ``$INTEGER`` | No |  |
+| `data` | `Record<string, any>` | No |  |
+| `status` | `number` | No |  |
 
 ### Operations
 
@@ -206,7 +206,7 @@ const shop = client.Shop()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Shop().load({ id: 'shop_id' })
+const result = await client.Shop().load()
 ```
 
 ### Common Methods
@@ -247,8 +247,8 @@ const statistic = client.Statistic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
-| `status` | ``$INTEGER`` | No |  |
+| `data` | `Record<string, any>` | No |  |
+| `status` | `number` | No |  |
 
 ### Operations
 
@@ -257,7 +257,7 @@ const statistic = client.Statistic()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Statistic().load({ id: 'statistic_id' })
+const result = await client.Statistic().load()
 ```
 
 ### Common Methods

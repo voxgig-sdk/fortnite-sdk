@@ -19,8 +19,7 @@ type Cosmetic struct {
 	Type *map[string]any `json:"type,omitempty"`
 }
 
-// CosmeticListMatch mirrors the cosmetic fields as an all-optional match
-// filter (Go analog of Partial<Cosmetic>).
+// CosmeticListMatch is the typed request payload for Cosmetic.ListTyped.
 type CosmeticListMatch struct {
 	Added *string `json:"added,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -37,8 +36,7 @@ type Shop struct {
 	Status *int `json:"status,omitempty"`
 }
 
-// ShopLoadMatch mirrors the shop fields as an all-optional match
-// filter (Go analog of Partial<Shop>).
+// ShopLoadMatch is the typed request payload for Shop.LoadTyped.
 type ShopLoadMatch struct {
 	Data *map[string]any `json:"data,omitempty"`
 	Status *int `json:"status,omitempty"`
@@ -50,8 +48,7 @@ type Statistic struct {
 	Status *int `json:"status,omitempty"`
 }
 
-// StatisticLoadMatch mirrors the statistic fields as an all-optional match
-// filter (Go analog of Partial<Statistic>).
+// StatisticLoadMatch is the typed request payload for Statistic.LoadTyped.
 type StatisticLoadMatch struct {
 	Data *map[string]any `json:"data,omitempty"`
 	Status *int `json:"status,omitempty"`

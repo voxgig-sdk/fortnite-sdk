@@ -16,18 +16,29 @@
 ---@field type? table
 
 ---@class CosmeticListMatch
+---@field added? string
+---@field description? string
+---@field id? string
+---@field image? table
+---@field name? string
+---@field rarity? table
+---@field type? table
 
 ---@class Shop
 ---@field data? table
 ---@field status? number
 
 ---@class ShopLoadMatch
+---@field data? table
+---@field status? number
 
 ---@class Statistic
 ---@field data? table
 ---@field status? number
 
 ---@class StatisticLoadMatch
+---@field data? table
+---@field status? number
 
 local M = {}
 
