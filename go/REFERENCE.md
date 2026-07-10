@@ -99,6 +99,7 @@ same parameters as `Direct()`.
 
 ```go
 cosmetic := client.Cosmetic(nil)
+fmt.Println(cosmetic.GetName()) // "cosmetic"
 ```
 
 ### Fields
@@ -121,6 +122,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Cosmetic(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -151,6 +156,7 @@ Return the entity name.
 
 ```go
 shop := client.Shop(nil)
+fmt.Println(shop.GetName()) // "shop"
 ```
 
 ### Fields
@@ -168,6 +174,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Shop(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -198,6 +208,7 @@ Return the entity name.
 
 ```go
 statistic := client.Statistic(nil)
+fmt.Println(statistic.GetName()) // "statistic"
 ```
 
 ### Fields
@@ -215,6 +226,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Statistic(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

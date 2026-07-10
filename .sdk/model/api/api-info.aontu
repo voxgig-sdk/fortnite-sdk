@@ -15,9 +15,9 @@ main: {
           url: "https://fortnite-api.com/v2"
         }
       ]
+      summary: "The Fortnite API provides a wealth of data related to the popular battle royale game, including player statistics, cosmetics, daily shop items, news updates, and various game modes."
       title: "Fortnite API"
       version: "1.0.0"
+      website: "https://fortnite-api.com"
     }
   }
-}
-
