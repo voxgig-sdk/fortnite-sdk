@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Fortnite SDK exists test
 
 local sdk = require("fortnite_sdk")
 
