@@ -35,7 +35,9 @@ const client = new FortniteSDK()
 
 ### 2. List cosmetic records
 
-`list()` resolves to an array of Cosmetic objects — iterate it directly:
+`list()` resolves to an array of Cosmetic ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const cosmetics = await client.Cosmetic().list()
@@ -52,10 +54,10 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const cosmetics = await client.Cosmetic().list()
-  console.log(cosmetics)
+  const statistic = await client.Statistic().load()
+  console.log(statistic)
 } catch (err) {
-  console.error('list failed:', err)
+  console.error('load failed:', err)
 }
 ```
 
@@ -119,9 +121,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = FortniteSDK.test()
 
-const cosmetic = await client.Cosmetic().list()
-// cosmetic is a bare entity populated with mock response data
-console.log(cosmetic)
+const statistic = await client.Statistic().load()
+// statistic is the entity, populated with mock response data
+// — call statistic.data() for the record itself
+console.log(statistic)
 ```
 
 You can also use the instance method:
@@ -136,14 +139,14 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Cosmetic()
+const entity = client.Statistic()
 
 // First call runs the operation and stores its result
-await entity.list()
+await entity.load()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data.id)
+console.log(data)
 ```
 
 ### Add custom middleware
@@ -291,7 +294,7 @@ The `prepare()` method returns:
 | `added` |  |
 | `description` |  |
 | `id` |  |
-| `image` |  |
+| `images` |  |
 | `name` |  |
 | `rarity` |  |
 | `type` |  |
@@ -304,8 +307,10 @@ API path: `/cosmetics/br`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `status` |  |
+| `daily` |  |
+| `date` |  |
+| `featured` |  |
+| `hash` |  |
 
 Operations: load.
 
@@ -315,8 +320,9 @@ API path: `/shop/br`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `status` |  |
+| `account` |  |
+| `battlePass` |  |
+| `stats` |  |
 
 Operations: load.
 
@@ -344,7 +350,7 @@ Create an instance: `const cosmetic = client.Cosmetic()`
 | `added` | `string` |  |
 | `description` | `string` |  |
 | `id` | `string` |  |
-| `image` | `Record<string, any>` |  |
+| `images` | `Record<string, any>` |  |
 | `name` | `string` |  |
 | `rarity` | `Record<string, any>` |  |
 | `type` | `Record<string, any>` |  |
@@ -370,8 +376,10 @@ Create an instance: `const shop = client.Shop()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `Record<string, any>` |  |
-| `status` | `number` |  |
+| `daily` | `any[]` |  |
+| `date` | `string` |  |
+| `featured` | `any[]` |  |
+| `hash` | `string` |  |
 
 #### Example: Load
 
@@ -394,8 +402,9 @@ Create an instance: `const statistic = client.Statistic()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `Record<string, any>` |  |
-| `status` | `number` |  |
+| `account` | `Record<string, any>` |  |
+| `battlePass` | `Record<string, any>` |  |
+| `stats` | `Record<string, any>` |  |
 
 #### Example: Load
 
@@ -468,16 +477,16 @@ import { FortniteSDK } from '@voxgig-sdk/fortnite'
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const cosmetic = client.Cosmetic()
-await cosmetic.list()
+const statistic = client.Statistic()
+await statistic.load()
 
-// cosmetic.data() now returns the cosmetic data from the last `list`
-// cosmetic.match() returns the last match criteria
+// statistic.data() now returns the statistic data from the last `load`
+// statistic.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

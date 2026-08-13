@@ -103,7 +103,7 @@ $cosmetic = $client->Cosmetic();
 | `added` | `string` | No |  |
 | `description` | `string` | No |  |
 | `id` | `string` | No |  |
-| `image` | `array` | No |  |
+| `images` | `array` | No |  |
 | `name` | `string` | No |  |
 | `rarity` | `array` | No |  |
 | `type` | `array` | No |  |
@@ -158,8 +158,10 @@ $shop = $client->Shop();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `array` | No |  |
-| `status` | `int` | No |  |
+| `daily` | `array` | No |  |
+| `date` | `string` | No |  |
+| `featured` | `array` | No |  |
+| `hash` | `string` | No |  |
 
 ### Operations
 
@@ -211,8 +213,9 @@ $statistic = $client->Statistic();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `array` | No |  |
-| `status` | `int` | No |  |
+| `account` | `array` | No |  |
+| `battlePass` | `array` | No |  |
+| `stats` | `array` | No |  |
 
 ### Operations
 

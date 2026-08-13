@@ -5,7 +5,7 @@
         "added": "s46",
         "description": "s47",
         "id": "COSMETIC00",
-        "image": {},
+        "images": {},
         "name": "s4a",
         "rarity": {},
         "type": {}
@@ -14,7 +14,7 @@
         "added": "s8c",
         "description": "s8d",
         "id": "COSMETIC01",
-        "image": {},
+        "images": {},
         "name": "s90",
         "rarity": {},
         "type": {}
@@ -23,7 +23,7 @@
         "added": "sd2",
         "description": "sd3",
         "id": "COSMETIC02",
-        "image": {},
+        "images": {},
         "name": "sd6",
         "rarity": {},
         "type": {}
@@ -35,7 +35,7 @@
       "cosmetic_ref01": {
         "added": "s118",
         "description": "s119",
-        "image": {},
+        "images": {},
         "name": "s11c",
         "rarity": {},
         "type": {}

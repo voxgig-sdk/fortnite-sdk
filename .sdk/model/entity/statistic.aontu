@@ -6,14 +6,19 @@ main: kit: entity: statistic: {
 
   fields: [
     {
-      name: "data"
+      name: "account"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "status"
+      name: "battlePass"
       req: false
-      type: "`$INTEGER`"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "stats"
+      req: false
+      type: "`$OBJECT`"
     }
   ]
 
@@ -73,7 +78,7 @@ main: kit: entity: statistic: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

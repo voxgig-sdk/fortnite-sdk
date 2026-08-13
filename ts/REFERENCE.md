@@ -143,10 +143,30 @@ const cosmetic = client.Cosmetic()
 | `added` | `string` | No |  |
 | `description` | `string` | No |  |
 | `id` | `string` | No |  |
-| `image` | `Record<string, any>` | No |  |
+| `images` | `Record<string, any>` | No |  |
 | `name` | `string` | No |  |
 | `rarity` | `Record<string, any>` | No |  |
 | `type` | `Record<string, any>` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `br` | `/cosmetics/br` | `client.Cosmetic().list({ $action: 'br', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Cosmetic record — check the API definition for its shape.
+
+```ts
+const result = await client.Cosmetic().list({
+  $action: 'br',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
@@ -196,8 +216,30 @@ const shop = client.Shop()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `Record<string, any>` | No |  |
-| `status` | `number` | No |  |
+| `daily` | `any[]` | No |  |
+| `date` | `string` | No |  |
+| `featured` | `any[]` | No |  |
+| `hash` | `string` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `br` | `/shop/br` | `client.Shop().load({ $action: 'br', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Shop record — check the API definition for its shape.
+
+```ts
+const result = await client.Shop().load({
+  $action: 'br',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
@@ -247,8 +289,9 @@ const statistic = client.Statistic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `Record<string, any>` | No |  |
-| `status` | `number` | No |  |
+| `account` | `Record<string, any>` | No |  |
+| `battlePass` | `Record<string, any>` | No |  |
+| `stats` | `Record<string, any>` | No |  |
 
 ### Operations
 

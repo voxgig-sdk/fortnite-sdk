@@ -9,6 +9,7 @@ guide: {
     path: "/cosmetics/br": {
       action: "br": {}
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -16,12 +17,14 @@ guide: {
     path: "/shop/br": {
       action: "br": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
     }
   }
 
   entity: statistic: {
     path: "/stats/br/v2": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
     }
   }
 

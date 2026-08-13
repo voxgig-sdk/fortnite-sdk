@@ -57,10 +57,10 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    cosmetics = client.Cosmetic().list()
-    print(cosmetics)
+    statistic = client.Statistic().load()
+    print(statistic)
 except Exception as err:
-    print(f"list failed: {err}")
+    print(f"load failed: {err}")
 ```
 
 `direct()` does **not** raise — it returns the result envelope. Branch
@@ -124,9 +124,10 @@ Create a mock client for unit testing — no server required:
 ```python
 client = FortniteSDK.test()
 
-# Entity ops return the bare record and raise on error.
-cosmetic = client.Cosmetic().list()
-# cosmetic contains the mock response record
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+statistic = client.Statistic().load()
+# statistic contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -223,7 +224,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -248,7 +249,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | `added` |  |
 | `description` |  |
 | `id` |  |
-| `image` |  |
+| `images` |  |
 | `name` |  |
 | `rarity` |  |
 | `type` |  |
@@ -261,8 +262,10 @@ API path: `/cosmetics/br`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `status` |  |
+| `daily` |  |
+| `date` |  |
+| `featured` |  |
+| `hash` |  |
 
 Operations: Load.
 
@@ -272,8 +275,9 @@ API path: `/shop/br`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `status` |  |
+| `account` |  |
+| `battlePass` |  |
+| `stats` |  |
 
 Operations: Load.
 
@@ -301,7 +305,7 @@ Create an instance: `cosmetic = client.Cosmetic()`
 | `added` | `str` |  |
 | `description` | `str` |  |
 | `id` | `str` |  |
-| `image` | `dict` |  |
+| `images` | `dict` |  |
 | `name` | `str` |  |
 | `rarity` | `dict` |  |
 | `type` | `dict` |  |
@@ -327,8 +331,10 @@ Create an instance: `shop = client.Shop()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `dict` |  |
-| `status` | `int` |  |
+| `daily` | `list` |  |
+| `date` | `str` |  |
+| `featured` | `list` |  |
+| `hash` | `str` |  |
 
 #### Example: Load
 
@@ -351,8 +357,9 @@ Create an instance: `statistic = client.Statistic()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `dict` |  |
-| `status` | `int` |  |
+| `account` | `dict` |  |
+| `battlePass` | `dict` |  |
+| `stats` | `dict` |  |
 
 #### Example: Load
 
@@ -432,15 +439,15 @@ Import entity or utility modules directly only when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-cosmetic = client.Cosmetic()
-cosmetic.list()
+statistic = client.Statistic()
+statistic.load()
 
-# cosmetic.data_get() now returns the cosmetic data from the last list
-# cosmetic.match_get() returns the last match criteria
+# statistic.data_get() now returns the statistic data from the last load
+# statistic.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

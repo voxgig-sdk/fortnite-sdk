@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Fortnite SDK exists test
 
 import pytest
 from fortnite_sdk import FortniteSDK

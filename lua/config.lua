@@ -49,7 +49,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "image",
+            ["name"] = "images",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 3,
@@ -97,6 +97,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cosmetics/br",
                 ["parts"] = {
@@ -111,7 +112,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 0,
               },
@@ -127,17 +128,31 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "data",
+            ["name"] = "daily",
             ["req"] = false,
-            ["type"] = "`$OBJECT`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "status",
+            ["name"] = "date",
             ["req"] = false,
-            ["type"] = "`$INTEGER`",
+            ["type"] = "`$STRING`",
             ["index$"] = 1,
+          },
+          {
+            ["active"] = true,
+            ["name"] = "featured",
+            ["req"] = false,
+            ["type"] = "`$ARRAY`",
+            ["index$"] = 2,
+          },
+          {
+            ["active"] = true,
+            ["name"] = "hash",
+            ["req"] = false,
+            ["type"] = "`$STRING`",
+            ["index$"] = 3,
           },
         },
         ["name"] = "shop",
@@ -161,6 +176,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/shop/br",
                 ["parts"] = {
@@ -175,7 +191,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 0,
               },
@@ -191,17 +207,24 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "data",
+            ["name"] = "account",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "status",
+            ["name"] = "battlePass",
             ["req"] = false,
-            ["type"] = "`$INTEGER`",
+            ["type"] = "`$OBJECT`",
             ["index$"] = 1,
+          },
+          {
+            ["active"] = true,
+            ["name"] = "stats",
+            ["req"] = false,
+            ["type"] = "`$OBJECT`",
+            ["index$"] = 2,
           },
         },
         ["name"] = "statistic",
@@ -249,6 +272,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/stats/br/v2",
                 ["parts"] = {
@@ -266,7 +290,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 0,
               },

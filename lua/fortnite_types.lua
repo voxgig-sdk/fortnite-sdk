@@ -10,7 +10,7 @@
 ---@field added? string
 ---@field description? string
 ---@field id? string
----@field image? table
+---@field images? table
 ---@field name? string
 ---@field rarity? table
 ---@field type? table
@@ -19,26 +19,32 @@
 ---@field added? string
 ---@field description? string
 ---@field id? string
----@field image? table
+---@field images? table
 ---@field name? string
 ---@field rarity? table
 ---@field type? table
 
 ---@class Shop
----@field data? table
----@field status? number
+---@field daily? table
+---@field date? string
+---@field featured? table
+---@field hash? string
 
 ---@class ShopLoadMatch
----@field data? table
----@field status? number
+---@field daily? table
+---@field date? string
+---@field featured? table
+---@field hash? string
 
 ---@class Statistic
----@field data? table
----@field status? number
+---@field account? table
+---@field battlePass? table
+---@field stats? table
 
 ---@class StatisticLoadMatch
----@field data? table
----@field status? number
+---@field account? table
+---@field battlePass? table
+---@field stats? table
 
 local M = {}
 

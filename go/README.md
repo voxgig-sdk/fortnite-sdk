@@ -68,12 +68,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-cosmetics, err := client.Cosmetic(nil).List(nil, nil)
+statistic, err := client.Statistic(nil).Load(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = cosmetics
+_ = statistic
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-cosmetic, err := client.Cosmetic(nil).List(
+statistic, err := client.Statistic(nil).Load(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(cosmetic) // the returned mock data
+fmt.Println(statistic) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -267,7 +267,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"added"` |  |
 | `"description"` |  |
 | `"id"` |  |
-| `"image"` |  |
+| `"images"` |  |
 | `"name"` |  |
 | `"rarity"` |  |
 | `"type"` |  |
@@ -280,8 +280,10 @@ API path: `/cosmetics/br`
 
 | Field | Description |
 | --- | --- |
-| `"data"` |  |
-| `"status"` |  |
+| `"daily"` |  |
+| `"date"` |  |
+| `"featured"` |  |
+| `"hash"` |  |
 
 Operations: Load.
 
@@ -291,8 +293,9 @@ API path: `/shop/br`
 
 | Field | Description |
 | --- | --- |
-| `"data"` |  |
-| `"status"` |  |
+| `"account"` |  |
+| `"battlePass"` |  |
+| `"stats"` |  |
 
 Operations: Load.
 
@@ -320,7 +323,7 @@ Create an instance: `cosmetic := client.Cosmetic(nil)`
 | `added` | `string` |  |
 | `description` | `string` |  |
 | `id` | `string` |  |
-| `image` | `map[string]any` |  |
+| `images` | `map[string]any` |  |
 | `name` | `string` |  |
 | `rarity` | `map[string]any` |  |
 | `type` | `map[string]any` |  |
@@ -350,8 +353,10 @@ Create an instance: `shop := client.Shop(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `map[string]any` |  |
-| `status` | `int` |  |
+| `daily` | `[]any` |  |
+| `date` | `string` |  |
+| `featured` | `[]any` |  |
+| `hash` | `string` |  |
 
 #### Example: Load
 
@@ -378,8 +383,9 @@ Create an instance: `statistic := client.Statistic(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `map[string]any` |  |
-| `status` | `int` |  |
+| `account` | `map[string]any` |  |
+| `battlePass` | `map[string]any` |  |
+| `stats` | `map[string]any` |  |
 
 #### Example: Load
 
@@ -461,15 +467,15 @@ like `core.ToMapAny`.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `List`, the entity
+Entity instances are stateful. After a successful `Load`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-cosmetic := client.Cosmetic(nil)
-cosmetic.List(nil, nil)
+statistic := client.Statistic(nil)
+statistic.Load(nil, nil)
 
-// cosmetic.Data() now returns the cosmetic data from the last list
-// cosmetic.Match() returns the last match criteria
+// statistic.Data() now returns the statistic data from the last load
+// statistic.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

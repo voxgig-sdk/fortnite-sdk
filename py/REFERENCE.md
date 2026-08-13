@@ -98,7 +98,7 @@ cosmetic = client.Cosmetic()
 | `added` | `str` | No |  |
 | `description` | `str` | No |  |
 | `id` | `str` | No |  |
-| `image` | `dict` | No |  |
+| `images` | `dict` | No |  |
 | `name` | `str` | No |  |
 | `rarity` | `dict` | No |  |
 | `type` | `dict` | No |  |
@@ -154,8 +154,10 @@ shop = client.Shop()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `dict` | No |  |
-| `status` | `int` | No |  |
+| `daily` | `list` | No |  |
+| `date` | `str` | No |  |
+| `featured` | `list` | No |  |
+| `hash` | `str` | No |  |
 
 ### Operations
 
@@ -206,8 +208,9 @@ statistic = client.Statistic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `dict` | No |  |
-| `status` | `int` | No |  |
+| `account` | `dict` | No |  |
+| `battlePass` | `dict` | No |  |
+| `stats` | `dict` | No |  |
 
 ### Operations
 

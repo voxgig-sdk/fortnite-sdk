@@ -18,7 +18,7 @@ class Cosmetic
     public ?string $added = null;
     public ?string $description = null;
     public ?string $id = null;
-    public ?array $image = null;
+    public ?array $images = null;
     public ?string $name = null;
     public ?array $rarity = null;
     public ?array $type = null;
@@ -30,7 +30,7 @@ class CosmeticListMatch
     public ?string $added = null;
     public ?string $description = null;
     public ?string $id = null;
-    public ?array $image = null;
+    public ?array $images = null;
     public ?string $name = null;
     public ?array $rarity = null;
     public ?array $type = null;
@@ -39,28 +39,34 @@ class CosmeticListMatch
 /** Shop entity data model. */
 class Shop
 {
-    public ?array $data = null;
-    public ?int $status = null;
+    public ?array $daily = null;
+    public ?string $date = null;
+    public ?array $featured = null;
+    public ?string $hash = null;
 }
 
 /** Request payload for Shop#load. */
 class ShopLoadMatch
 {
-    public ?array $data = null;
-    public ?int $status = null;
+    public ?array $daily = null;
+    public ?string $date = null;
+    public ?array $featured = null;
+    public ?string $hash = null;
 }
 
 /** Statistic entity data model. */
 class Statistic
 {
-    public ?array $data = null;
-    public ?int $status = null;
+    public ?array $account = null;
+    public ?array $battlePass = null;
+    public ?array $stats = null;
 }
 
 /** Request payload for Statistic#load. */
 class StatisticLoadMatch
 {
-    public ?array $data = null;
-    public ?int $status = null;
+    public ?array $account = null;
+    public ?array $battlePass = null;
+    public ?array $stats = null;
 }
 

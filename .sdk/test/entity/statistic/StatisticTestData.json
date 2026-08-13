@@ -2,18 +2,21 @@
   "existing": {
     "statistic": {
       "STATISTIC00": {
-        "data": {},
-        "status": "s15",
+        "account": {},
+        "battlePass": {},
+        "stats": {},
         "id": "STATISTIC00"
       },
       "STATISTIC01": {
-        "data": {},
-        "status": "s29",
+        "account": {},
+        "battlePass": {},
+        "stats": {},
         "id": "STATISTIC01"
       },
       "STATISTIC02": {
-        "data": {},
-        "status": "s3d",
+        "account": {},
+        "battlePass": {},
+        "stats": {},
         "id": "STATISTIC02"
       }
     }
@@ -21,8 +24,9 @@
   "new": {
     "statistic": {
       "statistic_ref01": {
-        "data": {},
-        "status": "s51"
+        "account": {},
+        "battlePass": {},
+        "stats": {}
       }
     }
   }

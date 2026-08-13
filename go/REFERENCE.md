@@ -109,7 +109,7 @@ fmt.Println(cosmetic.GetName()) // "cosmetic"
 | `added` | `string` | No |  |
 | `description` | `string` | No |  |
 | `id` | `string` | No |  |
-| `image` | `map[string]any` | No |  |
+| `images` | `map[string]any` | No |  |
 | `name` | `string` | No |  |
 | `rarity` | `map[string]any` | No |  |
 | `type` | `map[string]any` | No |  |
@@ -163,8 +163,10 @@ fmt.Println(shop.GetName()) // "shop"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `map[string]any` | No |  |
-| `status` | `int` | No |  |
+| `daily` | `[]any` | No |  |
+| `date` | `string` | No |  |
+| `featured` | `[]any` | No |  |
+| `hash` | `string` | No |  |
 
 ### Operations
 
@@ -215,8 +217,9 @@ fmt.Println(statistic.GetName()) // "statistic"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `map[string]any` | No |  |
-| `status` | `int` | No |  |
+| `account` | `map[string]any` | No |  |
+| `battlePass` | `map[string]any` | No |  |
+| `stats` | `map[string]any` | No |  |
 
 ### Operations
 

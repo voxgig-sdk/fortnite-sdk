@@ -38,18 +38,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = FortniteSDK.test()
-const cosmetics = await client.Cosmetic().list()
-// cosmetics is an array of bare Cosmetic records populated with mock data
-console.log(cosmetics)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = FortniteSDK.test({
+  entity: {
+    statistic: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const statistic = await client.Statistic().load()
+// statistic is the Statistic entity, populated with mock data
+// — call statistic.data() for the record itself
+console.log(statistic)
 ```
 
 ### Python
 
 ```python
 client = FortniteSDK.test()
-cosmetics = client.Cosmetic().list()
-print(cosmetics)
+statistic = client.Statistic().load()
+print(statistic)
 ```
 
 ### PHP
@@ -57,16 +66,16 @@ print(cosmetics)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = FortniteSDK::test([
-    "entity" => ["cosmetic" => ["test01" => []]],
+    "entity" => ["statistic" => ["test01" => []]],
 ]);
-$cosmetics = $client->Cosmetic()->list();
+$statistic = $client->Statistic()->load();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Cosmetic(nil).List(
+result, err := client.Statistic(nil).Load(
     nil, nil,
 )
 ```
@@ -76,16 +85,16 @@ result, err := client.Cosmetic(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = FortniteSDK.test({
-  "entity" => { "cosmetic" => { "test01" => {} } },
+  "entity" => { "statistic" => { "test01" => {} } },
 })
-cosmetics = client.Cosmetic.list()
+statistic = client.Statistic.load()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:Cosmetic():list()
+local result, err = client:Statistic():load()
 ```
 
 ## Packages
@@ -110,7 +119,7 @@ import { FortniteSDK } from '@voxgig-sdk/fortnite'
 
 const client = new FortniteSDK()
 
-// List all cosmetics (returns Cosmetic[])
+// List all cosmetics (returns CosmeticEntity[] — .data() for the record)
 const cosmetics = await client.Cosmetic().list()
 for (const cosmetic of cosmetics) {
   console.log(cosmetic)
@@ -345,6 +354,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://dash.fortnite-api.com/](https://dash.fortnite-api.com/)
 

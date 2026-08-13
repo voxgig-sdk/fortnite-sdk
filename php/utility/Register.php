@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ FortniteUtility::setRegistrar(function (FortniteUtility $u): void {
     $u->prepare_params = [FortnitePrepareParams::class, 'call'];
     $u->prepare_path = [FortnitePreparePath::class, 'call'];
     $u->prepare_query = [FortnitePrepareQuery::class, 'call'];
+    $u->graphql_body = [FortniteGraphql::class, 'body'];
+    $u->graphql_errors = [FortniteGraphql::class, 'errors'];
     $u->result_basic = [FortniteResultBasic::class, 'call'];
     $u->result_body = [FortniteResultBody::class, 'call'];
     $u->result_headers = [FortniteResultHeaders::class, 'call'];

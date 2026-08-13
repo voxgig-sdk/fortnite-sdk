@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import FortniteSDK
-from core.error import FortniteError
-from core.result import FortniteResult
-from core.response import FortniteResponse
-from core.spec import FortniteSpec
-from feature.base_feature import FortniteBaseFeature
+from projectname_sdk.core.error import FortniteError
+from projectname_sdk.core.result import FortniteResult
+from projectname_sdk.core.response import FortniteResponse
+from projectname_sdk.core.spec import FortniteSpec
+from projectname_sdk.feature.base_feature import FortniteBaseFeature
 
 
 def _client():

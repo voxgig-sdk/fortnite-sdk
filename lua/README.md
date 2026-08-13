@@ -54,7 +54,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local cosmetics, err = client:Cosmetic():list()
+local statistic, err = client:Statistic():load()
 if err then error(err) end
 ```
 
@@ -112,7 +112,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Cosmetic():list()
+local result, err = client:Statistic():load()
 -- result is the returned data; err is set on failure
 ```
 
@@ -222,9 +222,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local cosmetic, err = client:Cosmetic():load()
+    local shop, err = client:Shop():load()
     if err then error(err) end
-    -- cosmetic is the loaded record
+    -- shop is the loaded record
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -238,7 +238,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `added` |  |
 | `description` |  |
 | `id` |  |
-| `image` |  |
+| `images` |  |
 | `name` |  |
 | `rarity` |  |
 | `type` |  |
@@ -251,8 +251,10 @@ API path: `/cosmetics/br`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `status` |  |
+| `daily` |  |
+| `date` |  |
+| `featured` |  |
+| `hash` |  |
 
 Operations: Load.
 
@@ -262,8 +264,9 @@ API path: `/shop/br`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `status` |  |
+| `account` |  |
+| `battlePass` |  |
+| `stats` |  |
 
 Operations: Load.
 
@@ -291,7 +294,7 @@ Create an instance: `local cosmetic = client:Cosmetic(nil)`
 | `added` | `string` |  |
 | `description` | `string` |  |
 | `id` | `string` |  |
-| `image` | `table` |  |
+| `images` | `table` |  |
 | `name` | `string` |  |
 | `rarity` | `table` |  |
 | `type` | `table` |  |
@@ -317,8 +320,10 @@ Create an instance: `local shop = client:Shop(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `table` |  |
-| `status` | `number` |  |
+| `daily` | `table` |  |
+| `date` | `string` |  |
+| `featured` | `table` |  |
+| `hash` | `string` |  |
 
 #### Example: Load
 
@@ -341,8 +346,9 @@ Create an instance: `local statistic = client:Statistic(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `table` |  |
-| `status` | `number` |  |
+| `account` | `table` |  |
+| `battlePass` | `table` |  |
+| `stats` | `table` |  |
 
 #### Example: Load
 
@@ -423,15 +429,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local cosmetic = client:Cosmetic()
-cosmetic:list()
+local statistic = client:Statistic()
+statistic:load()
 
--- cosmetic:data_get() now returns the cosmetic data from the last list
--- cosmetic:match_get() returns the last match criteria
+-- statistic:data_get() now returns the statistic data from the last load
+-- statistic:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

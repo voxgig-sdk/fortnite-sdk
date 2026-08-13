@@ -53,7 +53,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $cosmetics = $client->Cosmetic()->list();
+    $statistic = $client->Statistic()->load();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,9 +125,10 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = FortniteSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
-$cosmetic = $client->Cosmetic()->list();
-print_r($cosmetic);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$statistic = $client->Statistic()->load();
+print_r($statistic);
 ```
 
 ### Use a custom fetch function
@@ -227,7 +228,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -252,7 +253,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `added` |  |
 | `description` |  |
 | `id` |  |
-| `image` |  |
+| `images` |  |
 | `name` |  |
 | `rarity` |  |
 | `type` |  |
@@ -265,8 +266,10 @@ API path: `/cosmetics/br`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `status` |  |
+| `daily` |  |
+| `date` |  |
+| `featured` |  |
+| `hash` |  |
 
 Operations: Load.
 
@@ -276,8 +279,9 @@ API path: `/shop/br`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `status` |  |
+| `account` |  |
+| `battlePass` |  |
+| `stats` |  |
 
 Operations: Load.
 
@@ -305,7 +309,7 @@ Create an instance: `$cosmetic = $client->Cosmetic();`
 | `added` | `string` |  |
 | `description` | `string` |  |
 | `id` | `string` |  |
-| `image` | `array` |  |
+| `images` | `array` |  |
 | `name` | `string` |  |
 | `rarity` | `array` |  |
 | `type` | `array` |  |
@@ -332,13 +336,15 @@ Create an instance: `$shop = $client->Shop();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `array` |  |
-| `status` | `int` |  |
+| `daily` | `array` |  |
+| `date` | `string` |  |
+| `featured` | `array` |  |
+| `hash` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Shop record (throws on error).
+// load() returns the ENTITY — call data_get() for the Shop record (throws on error).
 $shop = $client->Shop()->load();
 ```
 
@@ -357,13 +363,14 @@ Create an instance: `$statistic = $client->Statistic();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `array` |  |
-| `status` | `int` |  |
+| `account` | `array` |  |
+| `battlePass` | `array` |  |
+| `stats` | `array` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Statistic record (throws on error).
+// load() returns the ENTITY — call data_get() for the Statistic record (throws on error).
 $statistic = $client->Statistic()->load();
 ```
 
@@ -440,15 +447,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$cosmetic = $client->Cosmetic();
-$cosmetic->list();
+$statistic = $client->Statistic();
+$statistic->load();
 
-// $cosmetic->data_get() now returns the cosmetic data from the last list
-// $cosmetic->match_get() returns the last match criteria
+// $statistic->data_get() now returns the statistic data from the last load
+// $statistic->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

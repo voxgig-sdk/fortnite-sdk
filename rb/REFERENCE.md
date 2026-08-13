@@ -104,7 +104,7 @@ cosmetic = client.Cosmetic
 | `added` | `String` | No |  |
 | `description` | `String` | No |  |
 | `id` | `String` | No |  |
-| `image` | `Hash` | No |  |
+| `images` | `Hash` | No |  |
 | `name` | `String` | No |  |
 | `rarity` | `Hash` | No |  |
 | `type` | `Hash` | No |  |
@@ -159,8 +159,10 @@ shop = client.Shop
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `Hash` | No |  |
-| `status` | `Integer` | No |  |
+| `daily` | `Array` | No |  |
+| `date` | `String` | No |  |
+| `featured` | `Array` | No |  |
+| `hash` | `String` | No |  |
 
 ### Operations
 
@@ -212,8 +214,9 @@ statistic = client.Statistic
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `Hash` | No |  |
-| `status` | `Integer` | No |  |
+| `account` | `Hash` | No |  |
+| `battlePass` | `Hash` | No |  |
+| `stats` | `Hash` | No |  |
 
 ### Operations
 

@@ -51,9 +51,9 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  cosmetics = client.Cosmetic.list()
+  statistic = client.Statistic.load()
 rescue => err
-  warn "list failed: #{err}"
+  warn "load failed: #{err}"
 end
 ```
 
@@ -119,9 +119,10 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = FortniteSDK.test
 
-# Entity ops return the bare mock record (raises on error).
-cosmetic = client.Cosmetic.list()
-puts cosmetic
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+statistic = client.Statistic.load()
+puts statistic
 ```
 
 ### Use a custom fetch function
@@ -242,7 +243,7 @@ returns a result `Hash` with these keys:
 | `added` |  |
 | `description` |  |
 | `id` |  |
-| `image` |  |
+| `images` |  |
 | `name` |  |
 | `rarity` |  |
 | `type` |  |
@@ -255,8 +256,10 @@ API path: `/cosmetics/br`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `status` |  |
+| `daily` |  |
+| `date` |  |
+| `featured` |  |
+| `hash` |  |
 
 Operations: Load.
 
@@ -266,8 +269,9 @@ API path: `/shop/br`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `status` |  |
+| `account` |  |
+| `battlePass` |  |
+| `stats` |  |
 
 Operations: Load.
 
@@ -295,7 +299,7 @@ Create an instance: `cosmetic = client.Cosmetic`
 | `added` | `String` |  |
 | `description` | `String` |  |
 | `id` | `String` |  |
-| `image` | `Hash` |  |
+| `images` | `Hash` |  |
 | `name` | `String` |  |
 | `rarity` | `Hash` |  |
 | `type` | `Hash` |  |
@@ -322,13 +326,15 @@ Create an instance: `shop = client.Shop`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `Hash` |  |
-| `status` | `Integer` |  |
+| `daily` | `Array` |  |
+| `date` | `String` |  |
+| `featured` | `Array` |  |
+| `hash` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Shop record (raises on error).
+# load returns the ENTITY — call data_get for the Shop record (raises on error).
 shop = client.Shop.load()
 ```
 
@@ -347,13 +353,14 @@ Create an instance: `statistic = client.Statistic`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `Hash` |  |
-| `status` | `Integer` |  |
+| `account` | `Hash` |  |
+| `battlePass` | `Hash` |  |
+| `stats` | `Hash` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Statistic record (raises on error).
+# load returns the ENTITY — call data_get for the Statistic record (raises on error).
 statistic = client.Statistic.load()
 ```
 
@@ -430,15 +437,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-cosmetic = client.Cosmetic
-cosmetic.list()
+statistic = client.Statistic
+statistic.load()
 
-# cosmetic.data_get now returns the cosmetic data from the last list
-# cosmetic.match_get returns the last match criteria
+# statistic.data_get now returns the statistic data from the last load
+# statistic.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

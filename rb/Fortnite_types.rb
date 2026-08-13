@@ -19,7 +19,7 @@
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] image
+# @!attribute [rw] images
 #   @return [Hash, nil]
 #
 # @!attribute [rw] name
@@ -34,7 +34,7 @@ Cosmetic = Struct.new(
   :added,
   :description,
   :id,
-  :image,
+  :images,
   :name,
   :rarity,
   :type,
@@ -52,7 +52,7 @@ Cosmetic = Struct.new(
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] image
+# @!attribute [rw] images
 #   @return [Hash, nil]
 #
 # @!attribute [rw] name
@@ -67,7 +67,7 @@ CosmeticListMatch = Struct.new(
   :added,
   :description,
   :id,
-  :image,
+  :images,
   :name,
   :rarity,
   :type,
@@ -76,53 +76,77 @@ CosmeticListMatch = Struct.new(
 
 # Shop entity data model.
 #
-# @!attribute [rw] data
-#   @return [Hash, nil]
+# @!attribute [rw] daily
+#   @return [Array, nil]
 #
-# @!attribute [rw] status
-#   @return [Integer, nil]
+# @!attribute [rw] date
+#   @return [String, nil]
+#
+# @!attribute [rw] featured
+#   @return [Array, nil]
+#
+# @!attribute [rw] hash
+#   @return [String, nil]
 Shop = Struct.new(
-  :data,
-  :status,
+  :daily,
+  :date,
+  :featured,
+  :hash,
   keyword_init: true
 )
 
 # Request payload for Shop#load.
 #
-# @!attribute [rw] data
-#   @return [Hash, nil]
+# @!attribute [rw] daily
+#   @return [Array, nil]
 #
-# @!attribute [rw] status
-#   @return [Integer, nil]
+# @!attribute [rw] date
+#   @return [String, nil]
+#
+# @!attribute [rw] featured
+#   @return [Array, nil]
+#
+# @!attribute [rw] hash
+#   @return [String, nil]
 ShopLoadMatch = Struct.new(
-  :data,
-  :status,
+  :daily,
+  :date,
+  :featured,
+  :hash,
   keyword_init: true
 )
 
 # Statistic entity data model.
 #
-# @!attribute [rw] data
+# @!attribute [rw] account
 #   @return [Hash, nil]
 #
-# @!attribute [rw] status
-#   @return [Integer, nil]
+# @!attribute [rw] battlePass
+#   @return [Hash, nil]
+#
+# @!attribute [rw] stats
+#   @return [Hash, nil]
 Statistic = Struct.new(
-  :data,
-  :status,
+  :account,
+  :battlePass,
+  :stats,
   keyword_init: true
 )
 
 # Request payload for Statistic#load.
 #
-# @!attribute [rw] data
+# @!attribute [rw] account
 #   @return [Hash, nil]
 #
-# @!attribute [rw] status
-#   @return [Integer, nil]
+# @!attribute [rw] battlePass
+#   @return [Hash, nil]
+#
+# @!attribute [rw] stats
+#   @return [Hash, nil]
 StatisticLoadMatch = Struct.new(
-  :data,
-  :status,
+  :account,
+  :battlePass,
+  :stats,
   keyword_init: true
 )
 

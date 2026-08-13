@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import FortniteControl
-from core.error import FortniteError
-from core.result import FortniteResult
-from core.spec import FortniteSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import FortniteControl
+from projectname_sdk.core.error import FortniteError
+from projectname_sdk.core.result import FortniteResult
+from projectname_sdk.core.spec import FortniteSpec
 
 
 # True when this SDK was generated with the named feature.

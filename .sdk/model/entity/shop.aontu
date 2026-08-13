@@ -6,14 +6,24 @@ main: kit: entity: shop: {
 
   fields: [
     {
-      name: "data"
+      name: "daily"
       req: false
-      type: "`$OBJECT`"
+      type: "`$ARRAY`"
     }
     {
-      name: "status"
+      name: "date"
       req: false
-      type: "`$INTEGER`"
+      type: "`$STRING`"
+    }
+    {
+      name: "featured"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "hash"
+      req: false
+      type: "`$STRING`"
     }
   ]
 
@@ -49,7 +59,7 @@ main: kit: entity: shop: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

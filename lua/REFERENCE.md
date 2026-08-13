@@ -101,7 +101,7 @@ local cosmetic = client:Cosmetic(nil)
 | `added` | `string` | No |  |
 | `description` | `string` | No |  |
 | `id` | `string` | No |  |
-| `image` | `table` | No |  |
+| `images` | `table` | No |  |
 | `name` | `string` | No |  |
 | `rarity` | `table` | No |  |
 | `type` | `table` | No |  |
@@ -156,8 +156,10 @@ local shop = client:Shop(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `table` | No |  |
-| `status` | `number` | No |  |
+| `daily` | `table` | No |  |
+| `date` | `string` | No |  |
+| `featured` | `table` | No |  |
+| `hash` | `string` | No |  |
 
 ### Operations
 
@@ -209,8 +211,9 @@ local statistic = client:Statistic(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `table` | No |  |
-| `status` | `number` | No |  |
+| `account` | `table` | No |  |
+| `battlePass` | `table` | No |  |
+| `stats` | `table` | No |  |
 
 ### Operations
 
