@@ -40,7 +40,7 @@ class FortniteSDK
         $utility = new FortniteUtility();
         $this->_utility = $utility;
 
-        $config = FortniteConfig::make_config();
+        $config = FortniteConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

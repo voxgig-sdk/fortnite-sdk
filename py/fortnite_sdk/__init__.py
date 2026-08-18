@@ -23,8 +23,8 @@ class FortniteSDK:
         utility = FortniteUtility()
         self._utility = utility
 
-        from fortnite_sdk.config import make_config
-        config = make_config()
+        from fortnite_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

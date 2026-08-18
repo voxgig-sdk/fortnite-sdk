@@ -28,7 +28,7 @@ class FortniteSDK
     utility = FortniteUtility.new
     @_utility = utility
 
-    config = FortniteConfig.make_config
+    config = FortniteConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

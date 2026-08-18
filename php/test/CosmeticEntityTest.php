@@ -40,7 +40,7 @@ class CosmeticEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = FortniteConfig::make_config();
+        $cfg = FortniteConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = FortniteSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];
