@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Fortnite',
+        slug: "fortnite",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -62,14 +73,17 @@ class Config {
       "fields": [
         {
           "name": "added",
+          "short": "Date when the item was added",
           "type": "`$STRING`"
         },
         {
           "name": "description",
+          "short": "Description of the cosmetic item",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the cosmetic item",
           "type": "`$STRING`"
         },
         {
@@ -78,6 +92,7 @@ class Config {
         },
         {
           "name": "name",
+          "short": "Name of the cosmetic item",
           "type": "`$STRING`"
         },
         {
@@ -140,6 +155,7 @@ class Config {
         },
         {
           "name": "date",
+          "short": "Date when the shop was last updated",
           "type": "`$STRING`"
         },
         {
@@ -148,6 +164,7 @@ class Config {
         },
         {
           "name": "hash",
+          "short": "Unique hash of the current shop",
           "type": "`$STRING`"
         }
       ],

@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -291,11 +291,11 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `added` |  |
-| `description` |  |
-| `id` |  |
+| `added` | Date when the item was added |
+| `description` | Description of the cosmetic item |
+| `id` | Unique identifier for the cosmetic item |
 | `images` |  |
-| `name` |  |
+| `name` | Name of the cosmetic item |
 | `rarity` |  |
 | `type` |  |
 
@@ -308,9 +308,9 @@ API path: `/cosmetics/br`
 | Field | Description |
 | --- | --- |
 | `daily` |  |
-| `date` |  |
+| `date` | Date when the shop was last updated |
 | `featured` |  |
-| `hash` |  |
+| `hash` | Unique hash of the current shop |
 
 Operations: load.
 
@@ -347,11 +347,11 @@ Create an instance: `const cosmetic = client.Cosmetic()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `added` | `string` |  |
-| `description` | `string` |  |
-| `id` | `string` |  |
+| `added` | `string` | Date when the item was added |
+| `description` | `string` | Description of the cosmetic item |
+| `id` | `string` | Unique identifier for the cosmetic item |
 | `images` | `Record<string, any>` |  |
-| `name` | `string` |  |
+| `name` | `string` | Name of the cosmetic item |
 | `rarity` | `Record<string, any>` |  |
 | `type` | `Record<string, any>` |  |
 
@@ -377,9 +377,9 @@ Create an instance: `const shop = client.Shop()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `daily` | `any[]` |  |
-| `date` | `string` |  |
+| `date` | `string` | Date when the shop was last updated |
 | `featured` | `any[]` |  |
-| `hash` | `string` |  |
+| `hash` | `string` | Unique hash of the current shop |
 
 #### Example: Load
 

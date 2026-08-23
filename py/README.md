@@ -246,11 +246,11 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `added` |  |
-| `description` |  |
-| `id` |  |
+| `added` | Date when the item was added |
+| `description` | Description of the cosmetic item |
+| `id` | Unique identifier for the cosmetic item |
 | `images` |  |
-| `name` |  |
+| `name` | Name of the cosmetic item |
 | `rarity` |  |
 | `type` |  |
 
@@ -263,9 +263,9 @@ API path: `/cosmetics/br`
 | Field | Description |
 | --- | --- |
 | `daily` |  |
-| `date` |  |
+| `date` | Date when the shop was last updated |
 | `featured` |  |
-| `hash` |  |
+| `hash` | Unique hash of the current shop |
 
 Operations: Load.
 
@@ -302,11 +302,11 @@ Create an instance: `cosmetic = client.Cosmetic()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `added` | `str` |  |
-| `description` | `str` |  |
-| `id` | `str` |  |
+| `added` | `str` | Date when the item was added |
+| `description` | `str` | Description of the cosmetic item |
+| `id` | `str` | Unique identifier for the cosmetic item |
 | `images` | `dict` |  |
-| `name` | `str` |  |
+| `name` | `str` | Name of the cosmetic item |
 | `rarity` | `dict` |  |
 | `type` | `dict` |  |
 
@@ -332,9 +332,9 @@ Create an instance: `shop = client.Shop()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `daily` | `list` |  |
-| `date` | `str` |  |
+| `date` | `str` | Date when the shop was last updated |
 | `featured` | `list` |  |
-| `hash` | `str` |  |
+| `hash` | `str` | Unique hash of the current shop |
 
 #### Example: Load
 

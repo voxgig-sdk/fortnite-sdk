@@ -240,11 +240,11 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `added` |  |
-| `description` |  |
-| `id` |  |
+| `added` | Date when the item was added |
+| `description` | Description of the cosmetic item |
+| `id` | Unique identifier for the cosmetic item |
 | `images` |  |
-| `name` |  |
+| `name` | Name of the cosmetic item |
 | `rarity` |  |
 | `type` |  |
 
@@ -257,9 +257,9 @@ API path: `/cosmetics/br`
 | Field | Description |
 | --- | --- |
 | `daily` |  |
-| `date` |  |
+| `date` | Date when the shop was last updated |
 | `featured` |  |
-| `hash` |  |
+| `hash` | Unique hash of the current shop |
 
 Operations: Load.
 
@@ -296,11 +296,11 @@ Create an instance: `cosmetic = client.Cosmetic`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `added` | `String` |  |
-| `description` | `String` |  |
-| `id` | `String` |  |
+| `added` | `String` | Date when the item was added |
+| `description` | `String` | Description of the cosmetic item |
+| `id` | `String` | Unique identifier for the cosmetic item |
 | `images` | `Hash` |  |
-| `name` | `String` |  |
+| `name` | `String` | Name of the cosmetic item |
 | `rarity` | `Hash` |  |
 | `type` | `Hash` |  |
 
@@ -327,9 +327,9 @@ Create an instance: `shop = client.Shop`
 | Field | Type | Description |
 | --- | --- | --- |
 | `daily` | `Array` |  |
-| `date` | `String` |  |
+| `date` | `String` | Date when the shop was last updated |
 | `featured` | `Array` |  |
-| `hash` | `String` |  |
+| `hash` | `String` | Unique hash of the current shop |
 
 #### Example: Load
 

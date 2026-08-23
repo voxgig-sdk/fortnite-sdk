@@ -95,11 +95,11 @@ cosmetic = client.Cosmetic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `added` | `str` | No |  |
-| `description` | `str` | No |  |
-| `id` | `str` | No |  |
+| `added` | `str` | No | Date when the item was added |
+| `description` | `str` | No | Description of the cosmetic item |
+| `id` | `str` | No | Unique identifier for the cosmetic item |
 | `images` | `dict` | No |  |
-| `name` | `str` | No |  |
+| `name` | `str` | No | Name of the cosmetic item |
 | `rarity` | `dict` | No |  |
 | `type` | `dict` | No |  |
 
@@ -155,9 +155,9 @@ shop = client.Shop()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `daily` | `list` | No |  |
-| `date` | `str` | No |  |
+| `date` | `str` | No | Date when the shop was last updated |
 | `featured` | `list` | No |  |
-| `hash` | `str` | No |  |
+| `hash` | `str` | No | Unique hash of the current shop |
 
 ### Operations
 

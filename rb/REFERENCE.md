@@ -101,11 +101,11 @@ cosmetic = client.Cosmetic
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `added` | `String` | No |  |
-| `description` | `String` | No |  |
-| `id` | `String` | No |  |
+| `added` | `String` | No | Date when the item was added |
+| `description` | `String` | No | Description of the cosmetic item |
+| `id` | `String` | No | Unique identifier for the cosmetic item |
 | `images` | `Hash` | No |  |
-| `name` | `String` | No |  |
+| `name` | `String` | No | Name of the cosmetic item |
 | `rarity` | `Hash` | No |  |
 | `type` | `Hash` | No |  |
 
@@ -160,9 +160,9 @@ shop = client.Shop
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `daily` | `Array` | No |  |
-| `date` | `String` | No |  |
+| `date` | `String` | No | Date when the shop was last updated |
 | `featured` | `Array` | No |  |
-| `hash` | `String` | No |  |
+| `hash` | `String` | No | Unique hash of the current shop |
 
 ### Operations
 

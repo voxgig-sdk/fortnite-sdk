@@ -6,7 +6,7 @@ The Golang SDK for the Fortnite API — an entity-oriented client using standard
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Cosmetic(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -264,11 +264,11 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"added"` |  |
-| `"description"` |  |
-| `"id"` |  |
+| `"added"` | Date when the item was added |
+| `"description"` | Description of the cosmetic item |
+| `"id"` | Unique identifier for the cosmetic item |
 | `"images"` |  |
-| `"name"` |  |
+| `"name"` | Name of the cosmetic item |
 | `"rarity"` |  |
 | `"type"` |  |
 
@@ -281,9 +281,9 @@ API path: `/cosmetics/br`
 | Field | Description |
 | --- | --- |
 | `"daily"` |  |
-| `"date"` |  |
+| `"date"` | Date when the shop was last updated |
 | `"featured"` |  |
-| `"hash"` |  |
+| `"hash"` | Unique hash of the current shop |
 
 Operations: Load.
 
@@ -320,11 +320,11 @@ Create an instance: `cosmetic := client.Cosmetic(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `added` | `string` |  |
-| `description` | `string` |  |
-| `id` | `string` |  |
+| `added` | `string` | Date when the item was added |
+| `description` | `string` | Description of the cosmetic item |
+| `id` | `string` | Unique identifier for the cosmetic item |
 | `images` | `map[string]any` |  |
-| `name` | `string` |  |
+| `name` | `string` | Name of the cosmetic item |
 | `rarity` | `map[string]any` |  |
 | `type` | `map[string]any` |  |
 
@@ -354,9 +354,9 @@ Create an instance: `shop := client.Shop(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `daily` | `[]any` |  |
-| `date` | `string` |  |
+| `date` | `string` | Date when the shop was last updated |
 | `featured` | `[]any` |  |
-| `hash` | `string` |  |
+| `hash` | `string` | Unique hash of the current shop |
 
 #### Example: Load
 

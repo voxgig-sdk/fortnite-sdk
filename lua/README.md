@@ -235,11 +235,11 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `added` |  |
-| `description` |  |
-| `id` |  |
+| `added` | Date when the item was added |
+| `description` | Description of the cosmetic item |
+| `id` | Unique identifier for the cosmetic item |
 | `images` |  |
-| `name` |  |
+| `name` | Name of the cosmetic item |
 | `rarity` |  |
 | `type` |  |
 
@@ -252,9 +252,9 @@ API path: `/cosmetics/br`
 | Field | Description |
 | --- | --- |
 | `daily` |  |
-| `date` |  |
+| `date` | Date when the shop was last updated |
 | `featured` |  |
-| `hash` |  |
+| `hash` | Unique hash of the current shop |
 
 Operations: Load.
 
@@ -291,11 +291,11 @@ Create an instance: `local cosmetic = client:Cosmetic(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `added` | `string` |  |
-| `description` | `string` |  |
-| `id` | `string` |  |
+| `added` | `string` | Date when the item was added |
+| `description` | `string` | Description of the cosmetic item |
+| `id` | `string` | Unique identifier for the cosmetic item |
 | `images` | `table` |  |
-| `name` | `string` |  |
+| `name` | `string` | Name of the cosmetic item |
 | `rarity` | `table` |  |
 | `type` | `table` |  |
 
@@ -321,9 +321,9 @@ Create an instance: `local shop = client:Shop(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `daily` | `table` |  |
-| `date` | `string` |  |
+| `date` | `string` | Date when the shop was last updated |
 | `featured` | `table` |  |
-| `hash` | `string` |  |
+| `hash` | `string` | Unique hash of the current shop |
 
 #### Example: Load
 

@@ -19,6 +19,9 @@ module FortniteConfig
     {
       "main" => {
         "name" => "Fortnite",
+        "slug" => "fortnite",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -43,14 +46,17 @@ module FortniteConfig
           "fields" => [
             {
               "name" => "added",
+              "short" => "Date when the item was added",
               "type" => "`$STRING`",
             },
             {
               "name" => "description",
+              "short" => "Description of the cosmetic item",
               "type" => "`$STRING`",
             },
             {
               "name" => "id",
+              "short" => "Unique identifier for the cosmetic item",
               "type" => "`$STRING`",
             },
             {
@@ -59,6 +65,7 @@ module FortniteConfig
             },
             {
               "name" => "name",
+              "short" => "Name of the cosmetic item",
               "type" => "`$STRING`",
             },
             {
@@ -121,6 +128,7 @@ module FortniteConfig
             },
             {
               "name" => "date",
+              "short" => "Date when the shop was last updated",
               "type" => "`$STRING`",
             },
             {
@@ -129,6 +137,7 @@ module FortniteConfig
             },
             {
               "name" => "hash",
+              "short" => "Unique hash of the current shop",
               "type" => "`$STRING`",
             },
           ],

@@ -98,11 +98,11 @@ local cosmetic = client:Cosmetic(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `added` | `string` | No |  |
-| `description` | `string` | No |  |
-| `id` | `string` | No |  |
+| `added` | `string` | No | Date when the item was added |
+| `description` | `string` | No | Description of the cosmetic item |
+| `id` | `string` | No | Unique identifier for the cosmetic item |
 | `images` | `table` | No |  |
-| `name` | `string` | No |  |
+| `name` | `string` | No | Name of the cosmetic item |
 | `rarity` | `table` | No |  |
 | `type` | `table` | No |  |
 
@@ -157,9 +157,9 @@ local shop = client:Shop(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `daily` | `table` | No |  |
-| `date` | `string` | No |  |
+| `date` | `string` | No | Date when the shop was last updated |
 | `featured` | `table` | No |  |
-| `hash` | `string` | No |  |
+| `hash` | `string` | No | Unique hash of the current shop |
 
 ### Operations
 

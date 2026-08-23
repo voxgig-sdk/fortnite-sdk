@@ -8,16 +8,19 @@ main: kit: entity: cosmetic: {
     {
       name: "added"
       req: false
+      short: "Date when the item was added"
       type: "`$STRING`"
     }
     {
       name: "description"
       req: false
+      short: "Description of the cosmetic item"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the cosmetic item"
       type: "`$STRING`"
     }
     {
@@ -28,6 +31,7 @@ main: kit: entity: cosmetic: {
     {
       name: "name"
       req: false
+      short: "Name of the cosmetic item"
       type: "`$STRING`"
     }
     {

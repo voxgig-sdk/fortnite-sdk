@@ -33,6 +33,9 @@ class FortniteConfig
         return [
             "main" => [
                 "name" => "Fortnite",
+                "slug" => "fortnite",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -57,14 +60,17 @@ class FortniteConfig
           'fields' => [
             [
               'name' => 'added',
+              'short' => 'Date when the item was added',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'description',
+              'short' => 'Description of the cosmetic item',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'id',
+              'short' => 'Unique identifier for the cosmetic item',
               'type' => '`$STRING`',
             ],
             [
@@ -73,6 +79,7 @@ class FortniteConfig
             ],
             [
               'name' => 'name',
+              'short' => 'Name of the cosmetic item',
               'type' => '`$STRING`',
             ],
             [
@@ -135,6 +142,7 @@ class FortniteConfig
             ],
             [
               'name' => 'date',
+              'short' => 'Date when the shop was last updated',
               'type' => '`$STRING`',
             ],
             [
@@ -143,6 +151,7 @@ class FortniteConfig
             ],
             [
               'name' => 'hash',
+              'short' => 'Unique hash of the current shop',
               'type' => '`$STRING`',
             ],
           ],

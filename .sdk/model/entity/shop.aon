@@ -13,6 +13,7 @@ main: kit: entity: shop: {
     {
       name: "date"
       req: false
+      short: "Date when the shop was last updated"
       type: "`$STRING`"
     }
     {
@@ -23,6 +24,7 @@ main: kit: entity: shop: {
     {
       name: "hash"
       req: false
+      short: "Unique hash of the current shop"
       type: "`$STRING`"
     }
   ]

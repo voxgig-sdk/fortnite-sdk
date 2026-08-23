@@ -36,18 +36,21 @@
               "active": true,
               "name": "added",
               "req": false,
+              "short": "Date when the item was added",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Description of the cosmetic item",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the cosmetic item",
               "type": "`$STRING`"
             },
             {
@@ -60,6 +63,7 @@
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the cosmetic item",
               "type": "`$STRING`"
             },
             {
@@ -141,6 +145,7 @@
               "active": true,
               "name": "date",
               "req": false,
+              "short": "Date when the shop was last updated",
               "type": "`$STRING`"
             },
             {
@@ -153,6 +158,7 @@
               "active": true,
               "name": "hash",
               "req": false,
+              "short": "Unique hash of the current shop",
               "type": "`$STRING`"
             }
           ],
