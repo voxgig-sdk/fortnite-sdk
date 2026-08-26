@@ -42,6 +42,7 @@ class FortniteConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
