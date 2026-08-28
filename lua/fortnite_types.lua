@@ -16,13 +16,7 @@
 ---@field type? table
 
 ---@class CosmeticListMatch
----@field added? string
----@field description? string
----@field id? string
----@field images? table
----@field name? string
----@field rarity? table
----@field type? table
+---@field language? string
 
 ---@class Shop
 ---@field daily? table
@@ -31,10 +25,7 @@
 ---@field hash? string
 
 ---@class ShopLoadMatch
----@field daily? table
----@field date? string
----@field featured? table
----@field hash? string
+---@field language? string
 
 ---@class Statistic
 ---@field account? table
@@ -42,9 +33,10 @@
 ---@field stats? table
 
 ---@class StatisticLoadMatch
----@field account? table
----@field battlePass? table
----@field stats? table
+---@field account_id? string
+---@field image? string
+---@field name? string
+---@field time_window? string
 
 local M = {}
 

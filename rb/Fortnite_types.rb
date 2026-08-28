@@ -43,34 +43,10 @@ Cosmetic = Struct.new(
 
 # Request payload for Cosmetic#list.
 #
-# @!attribute [rw] added
+# @!attribute [rw] language
 #   @return [String, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] images
-#   @return [Hash, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] rarity
-#   @return [Hash, nil]
-#
-# @!attribute [rw] type
-#   @return [Hash, nil]
 CosmeticListMatch = Struct.new(
-  :added,
-  :description,
-  :id,
-  :images,
-  :name,
-  :rarity,
-  :type,
+  :language,
   keyword_init: true
 )
 
@@ -97,22 +73,10 @@ Shop = Struct.new(
 
 # Request payload for Shop#load.
 #
-# @!attribute [rw] daily
-#   @return [Array, nil]
-#
-# @!attribute [rw] date
-#   @return [String, nil]
-#
-# @!attribute [rw] featured
-#   @return [Array, nil]
-#
-# @!attribute [rw] hash
+# @!attribute [rw] language
 #   @return [String, nil]
 ShopLoadMatch = Struct.new(
-  :daily,
-  :date,
-  :featured,
-  :hash,
+  :language,
   keyword_init: true
 )
 
@@ -135,18 +99,22 @@ Statistic = Struct.new(
 
 # Request payload for Statistic#load.
 #
-# @!attribute [rw] account
-#   @return [Hash, nil]
+# @!attribute [rw] account_id
+#   @return [String, nil]
 #
-# @!attribute [rw] battlePass
-#   @return [Hash, nil]
+# @!attribute [rw] image
+#   @return [String, nil]
 #
-# @!attribute [rw] stats
-#   @return [Hash, nil]
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] time_window
+#   @return [String, nil]
 StatisticLoadMatch = Struct.new(
-  :account,
-  :battlePass,
-  :stats,
+  :account_id,
+  :image,
+  :name,
+  :time_window,
   keyword_init: true
 )
 

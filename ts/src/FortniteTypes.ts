@@ -16,13 +16,7 @@ export interface Cosmetic {
 }
 
 export interface CosmeticListMatch {
-  added?: string
-  description?: string
-  id?: string
-  images?: Record<string, any>
-  name?: string
-  rarity?: Record<string, any>
-  type?: Record<string, any>
+  language?: string
 
   // Selects a custom action instead of the plain list:
   //   'br'
@@ -39,10 +33,7 @@ export interface Shop {
 }
 
 export interface ShopLoadMatch {
-  daily?: any[]
-  date?: string
-  featured?: any[]
-  hash?: string
+  language?: string
 
   // Selects a custom action instead of the plain load:
   //   'br'
@@ -58,8 +49,9 @@ export interface Statistic {
 }
 
 export interface StatisticLoadMatch {
-  account?: Record<string, any>
-  battlePass?: Record<string, any>
-  stats?: Record<string, any>
+  account_id?: string
+  image?: string
+  name?: string
+  time_window?: string
 }
 

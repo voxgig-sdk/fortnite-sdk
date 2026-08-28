@@ -27,13 +27,7 @@ class Cosmetic
 /** Request payload for Cosmetic#list. */
 class CosmeticListMatch
 {
-    public ?string $added = null;
-    public ?string $description = null;
-    public ?string $id = null;
-    public ?array $images = null;
-    public ?string $name = null;
-    public ?array $rarity = null;
-    public ?array $type = null;
+    public ?string $language = null;
 }
 
 /** Shop entity data model. */
@@ -48,10 +42,7 @@ class Shop
 /** Request payload for Shop#load. */
 class ShopLoadMatch
 {
-    public ?array $daily = null;
-    public ?string $date = null;
-    public ?array $featured = null;
-    public ?string $hash = null;
+    public ?string $language = null;
 }
 
 /** Statistic entity data model. */
@@ -65,8 +56,9 @@ class Statistic
 /** Request payload for Statistic#load. */
 class StatisticLoadMatch
 {
-    public ?array $account = null;
-    public ?array $battlePass = null;
-    public ?array $stats = null;
+    public ?string $account_id = null;
+    public ?string $image = null;
+    public ?string $name = null;
+    public ?string $time_window = null;
 }
 

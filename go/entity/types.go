@@ -25,13 +25,7 @@ type Cosmetic struct {
 
 // CosmeticListMatch is the typed request payload for Cosmetic.ListTyped.
 type CosmeticListMatch struct {
-	Added *string `json:"added,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Images *map[string]any `json:"images,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Rarity *map[string]any `json:"rarity,omitempty"`
-	Type *map[string]any `json:"type,omitempty"`
+	Language *string `json:"language,omitempty"`
 }
 
 // Shop is the typed data model for the shop entity.
@@ -44,10 +38,7 @@ type Shop struct {
 
 // ShopLoadMatch is the typed request payload for Shop.LoadTyped.
 type ShopLoadMatch struct {
-	Daily *[]any `json:"daily,omitempty"`
-	Date *string `json:"date,omitempty"`
-	Featured *[]any `json:"featured,omitempty"`
-	Hash *string `json:"hash,omitempty"`
+	Language *string `json:"language,omitempty"`
 }
 
 // Statistic is the typed data model for the statistic entity.
@@ -59,9 +50,10 @@ type Statistic struct {
 
 // StatisticLoadMatch is the typed request payload for Statistic.LoadTyped.
 type StatisticLoadMatch struct {
-	Account *map[string]any `json:"account,omitempty"`
-	BattlePass *map[string]any `json:"battlePass,omitempty"`
-	Stats *map[string]any `json:"stats,omitempty"`
+	AccountId *string `json:"account_id,omitempty"`
+	Image *string `json:"image,omitempty"`
+	Name *string `json:"name,omitempty"`
+	TimeWindow *string `json:"time_window,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

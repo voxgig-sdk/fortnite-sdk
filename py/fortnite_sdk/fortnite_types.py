@@ -27,13 +27,7 @@ class Cosmetic(TypedDict, total=False):
 
 
 class CosmeticListMatch(TypedDict, total=False):
-    added: str
-    description: str
-    id: str
-    images: dict
-    name: str
-    rarity: dict
-    type: dict
+    language: str
 
 
 class Shop(TypedDict, total=False):
@@ -44,10 +38,7 @@ class Shop(TypedDict, total=False):
 
 
 class ShopLoadMatch(TypedDict, total=False):
-    daily: list
-    date: str
-    featured: list
-    hash: str
+    language: str
 
 
 class Statistic(TypedDict, total=False):
@@ -57,6 +48,7 @@ class Statistic(TypedDict, total=False):
 
 
 class StatisticLoadMatch(TypedDict, total=False):
-    account: dict
-    battlePass: dict
-    stats: dict
+    account_id: str
+    image: str
+    name: str
+    time_window: str
