@@ -1,6 +1,14 @@
 # Fortnite SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -55,6 +63,7 @@ def make_config():
       "cosmetic": {
         "fields": [
           {
+            "format": "date-time",
             "name": "added",
             "short": "Date when the item was added",
             "type": "`$STRING`",
@@ -87,6 +96,10 @@ def make_config():
             "type": "`$OBJECT`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "cosmetic",
         "op": {
           "list": {
@@ -108,9 +121,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cosmetics/br",
-                "parts": [
-                  "cosmetics",
-                  "br",
+                "segments": [
+                  {
+                    "lit": "cosmetics",
+                  },
+                  {
+                    "lit": "br",
+                  },
                 ],
                 "select": {
                   "$action": "br",
@@ -122,6 +139,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.data`",
                 },
+                "parts": [
+                  "cosmetics",
+                  "br",
+                ],
               },
             ],
           },
@@ -137,6 +158,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "date-time",
             "name": "date",
             "short": "Date when the shop was last updated",
             "type": "`$STRING`",
@@ -172,9 +194,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/shop/br",
-                "parts": [
-                  "shop",
-                  "br",
+                "segments": [
+                  {
+                    "lit": "shop",
+                  },
+                  {
+                    "lit": "br",
+                  },
                 ],
                 "select": {
                   "$action": "br",
@@ -186,6 +212,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.data`",
                 },
+                "parts": [
+                  "shop",
+                  "br",
+                ],
               },
             ],
           },
@@ -248,10 +278,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/stats/br/v2",
-                "parts": [
-                  "stats",
-                  "br",
-                  "v2",
+                "segments": [
+                  {
+                    "lit": "stats",
+                  },
+                  {
+                    "lit": "br",
+                  },
+                  {
+                    "lit": "v2",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -265,6 +301,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.data`",
                 },
+                "parts": [
+                  "stats",
+                  "br",
+                  "v2",
+                ],
               },
             ],
           },

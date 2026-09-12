@@ -34,6 +34,7 @@ local function make_config()
       ["cosmetic"] = {
         ["fields"] = {
           {
+            ["format"] = "date-time",
             ["name"] = "added",
             ["short"] = "Date when the item was added",
             ["type"] = "`$STRING`",
@@ -66,6 +67,10 @@ local function make_config()
             ["type"] = "`$OBJECT`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "cosmetic",
         ["op"] = {
           ["list"] = {
@@ -87,9 +92,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cosmetics/br",
-                ["parts"] = {
-                  "cosmetics",
-                  "br",
+                ["segments"] = {
+                  {
+                    ["lit"] = "cosmetics",
+                  },
+                  {
+                    ["lit"] = "br",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "br",
@@ -100,6 +109,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.data`",
+                },
+                ["parts"] = {
+                  "cosmetics",
+                  "br",
                 },
               },
             },
@@ -116,6 +129,7 @@ local function make_config()
             ["type"] = "`$ARRAY`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "date",
             ["short"] = "Date when the shop was last updated",
             ["type"] = "`$STRING`",
@@ -151,9 +165,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/shop/br",
-                ["parts"] = {
-                  "shop",
-                  "br",
+                ["segments"] = {
+                  {
+                    ["lit"] = "shop",
+                  },
+                  {
+                    ["lit"] = "br",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "br",
@@ -164,6 +182,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.data`",
+                },
+                ["parts"] = {
+                  "shop",
+                  "br",
                 },
               },
             },
@@ -227,10 +249,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/stats/br/v2",
-                ["parts"] = {
-                  "stats",
-                  "br",
-                  "v2",
+                ["segments"] = {
+                  {
+                    ["lit"] = "stats",
+                  },
+                  {
+                    ["lit"] = "br",
+                  },
+                  {
+                    ["lit"] = "v2",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -243,6 +271,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.data`",
+                },
+                ["parts"] = {
+                  "stats",
+                  "br",
+                  "v2",
                 },
               },
             },

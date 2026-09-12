@@ -60,6 +60,7 @@ class FortniteConfig
         'cosmetic' => [
           'fields' => [
             [
+              'format' => 'date-time',
               'name' => 'added',
               'short' => 'Date when the item was added',
               'type' => '`$STRING`',
@@ -92,6 +93,10 @@ class FortniteConfig
               'type' => '`$OBJECT`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'cosmetic',
           'op' => [
             'list' => [
@@ -113,9 +118,13 @@ class FortniteConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/cosmetics/br',
-                  'parts' => [
-                    'cosmetics',
-                    'br',
+                  'segments' => [
+                    [
+                      'lit' => 'cosmetics',
+                    ],
+                    [
+                      'lit' => 'br',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'br',
@@ -126,6 +135,10 @@ class FortniteConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
+                  ],
+                  'parts' => [
+                    'cosmetics',
+                    'br',
                   ],
                 ],
               ],
@@ -142,6 +155,7 @@ class FortniteConfig
               'type' => '`$ARRAY`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'date',
               'short' => 'Date when the shop was last updated',
               'type' => '`$STRING`',
@@ -177,9 +191,13 @@ class FortniteConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/shop/br',
-                  'parts' => [
-                    'shop',
-                    'br',
+                  'segments' => [
+                    [
+                      'lit' => 'shop',
+                    ],
+                    [
+                      'lit' => 'br',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'br',
@@ -190,6 +208,10 @@ class FortniteConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
+                  ],
+                  'parts' => [
+                    'shop',
+                    'br',
                   ],
                 ],
               ],
@@ -253,10 +275,16 @@ class FortniteConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/stats/br/v2',
-                  'parts' => [
-                    'stats',
-                    'br',
-                    'v2',
+                  'segments' => [
+                    [
+                      'lit' => 'stats',
+                    ],
+                    [
+                      'lit' => 'br',
+                    ],
+                    [
+                      'lit' => 'v2',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -269,6 +297,11 @@ class FortniteConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
+                  ],
+                  'parts' => [
+                    'stats',
+                    'br',
+                    'v2',
                   ],
                 ],
               ],

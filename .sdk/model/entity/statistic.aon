@@ -63,10 +63,16 @@ main: kit: entity: statistic: {
           }
           method: "GET"
           orig: "/stats/br/v2"
-          parts: [
-            "stats"
-            "br"
-            "v2"
+          segments: [
+            {
+              lit: "stats"
+            }
+            {
+              lit: "br"
+            }
+            {
+              lit: "v2"
+            }
           ]
           select: {
             exist: [

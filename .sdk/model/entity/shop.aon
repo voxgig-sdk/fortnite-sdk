@@ -11,6 +11,7 @@ main: kit: entity: shop: {
       type: "`$ARRAY`"
     }
     {
+      format: "date-time"
       name: "date"
       req: false
       short: "Date when the shop was last updated"
@@ -49,9 +50,13 @@ main: kit: entity: shop: {
           }
           method: "GET"
           orig: "/shop/br"
-          parts: [
-            "shop"
-            "br"
+          segments: [
+            {
+              lit: "shop"
+            }
+            {
+              lit: "br"
+            }
           ]
           select: {
             "$action": "br"

@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -73,6 +84,7 @@ class Config {
     "cosmetic": {
       "fields": [
         {
+          "format": "date-time",
           "name": "added",
           "short": "Date when the item was added",
           "type": "`$STRING`"
@@ -105,6 +117,10 @@ class Config {
           "type": "`$OBJECT`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "cosmetic",
       "op": {
         "list": {
@@ -126,9 +142,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/cosmetics/br",
-              "parts": [
-                "cosmetics",
-                "br"
+              "segments": [
+                {
+                  "lit": "cosmetics"
+                },
+                {
+                  "lit": "br"
+                }
               ],
               "select": {
                 "$action": "br",
@@ -139,7 +159,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.data`"
-              }
+              },
+              "parts": [
+                "cosmetics",
+                "br"
+              ]
             }
           ]
         }
@@ -155,6 +179,7 @@ class Config {
           "type": "`$ARRAY`"
         },
         {
+          "format": "date-time",
           "name": "date",
           "short": "Date when the shop was last updated",
           "type": "`$STRING`"
@@ -190,9 +215,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/shop/br",
-              "parts": [
-                "shop",
-                "br"
+              "segments": [
+                {
+                  "lit": "shop"
+                },
+                {
+                  "lit": "br"
+                }
               ],
               "select": {
                 "$action": "br",
@@ -203,7 +232,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.data`"
-              }
+              },
+              "parts": [
+                "shop",
+                "br"
+              ]
             }
           ]
         }
@@ -266,10 +299,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/stats/br/v2",
-              "parts": [
-                "stats",
-                "br",
-                "v2"
+              "segments": [
+                {
+                  "lit": "stats"
+                },
+                {
+                  "lit": "br"
+                },
+                {
+                  "lit": "v2"
+                }
               ],
               "select": {
                 "exist": [
@@ -282,7 +321,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.data`"
-              }
+              },
+              "parts": [
+                "stats",
+                "br",
+                "v2"
+              ]
             }
           ]
         }
@@ -298,6 +342,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

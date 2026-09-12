@@ -6,6 +6,7 @@ main: kit: entity: cosmetic: {
 
   fields: [
     {
+      format: "date-time"
       name: "added"
       req: false
       short: "Date when the item was added"
@@ -71,9 +72,13 @@ main: kit: entity: cosmetic: {
           }
           method: "GET"
           orig: "/cosmetics/br"
-          parts: [
-            "cosmetics"
-            "br"
+          segments: [
+            {
+              lit: "cosmetics"
+            }
+            {
+              lit: "br"
+            }
           ]
           select: {
             "$action": "br"
