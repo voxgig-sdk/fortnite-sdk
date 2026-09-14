@@ -105,7 +105,7 @@ local result, err = client:Statistic():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/fortnite` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fortnite-sdk/releases) |
+| TypeScript | `@voxgig-sdk/fortnite-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fortnite-sdk/releases) |
 | Python | `voxgig-sdk-fortnite` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fortnite-sdk/releases) |
 | PHP | `voxgig-sdk/fortnite` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fortnite-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/fortnite-sdk/go` | `go get github.com/voxgig-sdk/fortnite-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Statistic():load()
 ### TypeScript
 
 ```ts
-import { FortniteSDK } from '@voxgig-sdk/fortnite'
+import { FortniteSDK } from '@voxgig-sdk/fortnite-sdk'
 
 const client = new FortniteSDK()
 

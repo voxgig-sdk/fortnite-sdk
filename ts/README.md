@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FortniteSDK } from '@voxgig-sdk/fortnite'
+import { FortniteSDK } from '@voxgig-sdk/fortnite-sdk'
 
 const client = new FortniteSDK()
 ```
@@ -495,7 +495,7 @@ fortnite/
 Import the SDK from the package root:
 
 ```ts
-import { FortniteSDK } from '@voxgig-sdk/fortnite'
+import { FortniteSDK } from '@voxgig-sdk/fortnite-sdk'
 ```
 
 ### Entity state
