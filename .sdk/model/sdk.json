@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "cosmetic": {
           "active": true,
@@ -104,6 +168,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /cosmetics/br",
+                    "json": "{\"operationId\":\"getBRCosmetics\",\"parameters\":[{\"description\":\"Language code for localized content\",\"in\":\"query\",\"name\":\"language\",\"required\":false,\"schema\":{\"default\":\"en\",\"enum\":[\"en\",\"ar\",\"de\",\"es\",\"es-419\",\"fr\",\"it\",\"ja\",\"ko\",\"pl\",\"pt-BR\",\"ru\",\"tr\",\"zh-CN\",\"zh-Hant\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"added\":{\"description\":\"Date when the item was added\",\"format\":\"date-time\",\"type\":\"string\"},\"description\":{\"description\":\"Description of the cosmetic item\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the cosmetic item\",\"type\":\"string\"},\"images\":{\"properties\":{\"featured\":{\"format\":\"uri\",\"type\":\"string\"},\"icon\":{\"format\":\"uri\",\"type\":\"string\"},\"smallIcon\":{\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"},\"name\":{\"description\":\"Name of the cosmetic item\",\"type\":\"string\"},\"rarity\":{\"properties\":{\"displayValue\":{\"description\":\"Display name of the rarity\",\"type\":\"string\"},\"value\":{\"description\":\"Rarity level\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":{\"properties\":{\"displayValue\":{\"description\":\"Display name of the type\",\"type\":\"string\"},\"value\":{\"description\":\"Type of cosmetic (outfit, pickaxe, glider, etc.)\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"},\"type\":\"array\"},\"status\":{\"example\":200,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful response with cosmetics data\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Bad request\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -188,6 +258,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /shop/br",
+                    "json": "{\"operationId\":\"getBRShop\",\"parameters\":[{\"description\":\"Language code for localized content\",\"in\":\"query\",\"name\":\"language\",\"required\":false,\"schema\":{\"default\":\"en\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"daily\":{\"items\":{\"properties\":{\"bundle\":{\"properties\":{\"image\":{\"format\":\"uri\",\"type\":\"string\"},\"info\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"displayDescription\":{\"description\":\"Description of the shop entry\",\"type\":\"string\"},\"displayName\":{\"description\":\"Display name of the shop entry\",\"type\":\"string\"},\"items\":{\"items\":{\"properties\":{\"added\":{\"description\":\"Date when the item was added\",\"format\":\"date-time\",\"type\":\"string\"},\"description\":{\"description\":\"Description of the cosmetic item\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the cosmetic item\",\"type\":\"string\"},\"images\":{\"properties\":{\"featured\":{\"format\":\"uri\",\"type\":\"string\"},\"icon\":{\"format\":\"uri\",\"type\":\"string\"},\"smallIcon\":{\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"},\"name\":{\"description\":\"Name of the cosmetic item\",\"type\":\"string\"},\"rarity\":{\"properties\":{\"displayValue\":{\"description\":\"Display name of the rarity\",\"type\":\"string\"},\"value\":{\"description\":\"Rarity level\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":{\"properties\":{\"displayValue\":{\"description\":\"Display name of the type\",\"type\":\"string\"},\"value\":{\"description\":\"Type of cosmetic (outfit, pickaxe, glider, etc.)\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"},\"type\":\"array\"},\"mainId\":{\"description\":\"Main item ID\",\"type\":\"string\"},\"mainType\":{\"description\":\"Type of the main item\",\"type\":\"string\"},\"offerId\":{\"description\":\"Unique offer ID\",\"type\":\"string\"},\"price\":{\"properties\":{\"finalPrice\":{\"description\":\"Final price in V-Bucks\",\"type\":\"integer\"},\"regularPrice\":{\"description\":\"Regular price in V-Bucks\",\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"},\"type\":\"array\"},\"date\":{\"description\":\"Date when the shop was last updated\",\"format\":\"date-time\",\"type\":\"string\"},\"featured\":{\"items\":{\"properties\":{\"bundle\":{\"properties\":{\"image\":{\"format\":\"uri\",\"type\":\"string\"},\"info\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"displayDescription\":{\"description\":\"Description of the shop entry\",\"type\":\"string\"},\"displayName\":{\"description\":\"Display name of the shop entry\",\"type\":\"string\"},\"items\":{\"items\":{\"properties\":{\"added\":{\"description\":\"Date when the item was added\",\"format\":\"date-time\",\"type\":\"string\"},\"description\":{\"description\":\"Description of the cosmetic item\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the cosmetic item\",\"type\":\"string\"},\"images\":{\"properties\":{\"featured\":{\"format\":\"uri\",\"type\":\"string\"},\"icon\":{\"format\":\"uri\",\"type\":\"string\"},\"smallIcon\":{\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"},\"name\":{\"description\":\"Name of the cosmetic item\",\"type\":\"string\"},\"rarity\":{\"properties\":{\"displayValue\":{\"description\":\"Display name of the rarity\",\"type\":\"string\"},\"value\":{\"description\":\"Rarity level\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":{\"properties\":{\"displayValue\":{\"description\":\"Display name of the type\",\"type\":\"string\"},\"value\":{\"description\":\"Type of cosmetic (outfit, pickaxe, glider, etc.)\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"},\"type\":\"array\"},\"mainId\":{\"description\":\"Main item ID\",\"type\":\"string\"},\"mainType\":{\"description\":\"Type of the main item\",\"type\":\"string\"},\"offerId\":{\"description\":\"Unique offer ID\",\"type\":\"string\"},\"price\":{\"properties\":{\"finalPrice\":{\"description\":\"Final price in V-Bucks\",\"type\":\"integer\"},\"regularPrice\":{\"description\":\"Regular price in V-Bucks\",\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"},\"type\":\"array\"},\"hash\":{\"description\":\"Unique hash of the current shop\",\"type\":\"string\"}},\"type\":\"object\"},\"status\":{\"example\":200,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful response with shop data\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Bad request\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -288,6 +364,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /stats/br/v2",
+                    "json": "{\"operationId\":\"getBRStats\",\"parameters\":[{\"description\":\"Epic Games account name of the player\",\"in\":\"query\",\"name\":\"name\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Epic Games account ID of the player\",\"in\":\"query\",\"name\":\"accountId\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Time window for statistics\",\"in\":\"query\",\"name\":\"timeWindow\",\"required\":false,\"schema\":{\"default\":\"lifetime\",\"enum\":[\"season\",\"lifetime\"],\"type\":\"string\"}},{\"description\":\"Return response as an image\",\"in\":\"query\",\"name\":\"image\",\"required\":false,\"schema\":{\"enum\":[\"all\",\"keyboardMouse\",\"gamepad\",\"touch\",\"none\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"account\":{\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"battlePass\":{\"properties\":{\"level\":{\"type\":\"integer\"},\"progress\":{\"type\":\"integer\"}},\"type\":\"object\"},\"stats\":{\"properties\":{\"all\":{\"properties\":{\"duo\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"ltm\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"overall\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"solo\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"squad\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"trio\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"},\"gamepad\":{\"properties\":{\"duo\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"ltm\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"overall\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"solo\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"squad\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"trio\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"},\"keyboardMouse\":{\"properties\":{\"duo\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"ltm\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"overall\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"solo\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"squad\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"trio\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"},\"touch\":{\"properties\":{\"duo\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"ltm\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"overall\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"solo\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"squad\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"},\"trio\":{\"properties\":{\"deaths\":{\"description\":\"Total deaths\",\"type\":\"integer\"},\"kd\":{\"description\":\"Kill/Death ratio\",\"format\":\"double\",\"type\":\"number\"},\"kills\":{\"description\":\"Total kills\",\"type\":\"integer\"},\"killsPerMatch\":{\"description\":\"Kills per match\",\"format\":\"double\",\"type\":\"number\"},\"killsPerMin\":{\"description\":\"Kills per minute\",\"format\":\"double\",\"type\":\"number\"},\"matches\":{\"description\":\"Total matches played\",\"type\":\"integer\"},\"minutesPlayed\":{\"description\":\"Total minutes played\",\"type\":\"integer\"},\"playersOutlived\":{\"description\":\"Total players outlived\",\"type\":\"integer\"},\"score\":{\"description\":\"Total score\",\"type\":\"integer\"},\"scorePerMatch\":{\"description\":\"Score per match\",\"format\":\"double\",\"type\":\"number\"},\"scorePerMin\":{\"description\":\"Score per minute\",\"format\":\"double\",\"type\":\"number\"},\"top10\":{\"description\":\"Number of top 10 finishes\",\"type\":\"integer\"},\"top12\":{\"description\":\"Number of top 12 finishes\",\"type\":\"integer\"},\"top25\":{\"description\":\"Number of top 25 finishes\",\"type\":\"integer\"},\"top3\":{\"description\":\"Number of top 3 finishes\",\"type\":\"integer\"},\"top5\":{\"description\":\"Number of top 5 finishes\",\"type\":\"integer\"},\"top6\":{\"description\":\"Number of top 6 finishes\",\"type\":\"integer\"},\"winRate\":{\"description\":\"Win rate percentage\",\"format\":\"double\",\"type\":\"number\"},\"wins\":{\"description\":\"Number of wins\",\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"}},\"type\":\"object\"}},\"type\":\"object\"},\"status\":{\"example\":200,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful response with player statistics\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Bad request - Invalid parameters\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Player not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/stats/br/v2",
@@ -324,13 +406,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -420,6 +712,102 @@
           },
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
+          "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
           "version": "0.0.1"
         }
       },
@@ -530,6 +918,48 @@
         "website": "https://fortnite-api.com"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -1084,6 +1514,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -1125,7 +1556,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

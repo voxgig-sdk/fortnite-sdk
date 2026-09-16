@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Fortnite SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class FortniteFeatures
@@ -14,8 +17,14 @@ class FortniteFeatures
         switch ($name) {
             case "base":
                 return new FortniteBaseFeature();
+            case "ratelimit":
+                return new FortniteRatelimitFeature();
+            case "retry":
+                return new FortniteRetryFeature();
             case "test":
                 return new FortniteTestFeature();
+            case "timeout":
+                return new FortniteTimeoutFeature();
             default:
                 return new FortniteBaseFeature();
         }
@@ -31,7 +40,10 @@ class FortniteFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

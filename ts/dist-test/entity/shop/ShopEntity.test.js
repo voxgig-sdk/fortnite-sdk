@@ -40,6 +40,8 @@ const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
 // AFTER the imports on purpose: TypeScript hoists `import` above any
@@ -59,16 +61,12 @@ const utility_1 = require("../../utility");
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.FORTNITE_TEST_LIVE;
         for (const op of ['load']) {
-            if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'shop.' + op, live))
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'shop.' + op, live))
                 return;
         }
         const setup = basicSetup();
-        // The basic flow consumes synthetic IDs and field values from the
-        // fixture (entity TestData.json). Those don't exist on the live API.
-        // Skip live runs unless the user provided a real ENTID env override.
-        if (setup.syntheticOnly) {
-            t.skip('live entity test uses synthetic IDs from fixture — set FORTNITE_TEST_SHOP_ENTID JSON to run live');
-            return;
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [{ "active": true, "name": "daily", "req": false, "type": "`$ARRAY`", "index$": 0 }, { "active": true, "format": "date-time", "name": "date", "req": false, "short": "Date when the shop was last updated", "type": "`$STRING`", "index$": 1 }, { "active": true, "name": "featured", "req": false, "type": "`$ARRAY`", "index$": 2 }, { "active": true, "name": "hash", "req": false, "short": "Unique hash of the current shop", "type": "`$STRING`", "index$": 3 }], "name": "shop", "op": { "load": { "input": "data", "name": "load", "points": [{ "active": true, "args": { "query": [{ "active": true, "example": "en", "kind": "query", "name": "language", "orig": "language", "reqd": false, "type": "`$STRING`", "index$": 0 }] }, "contract": { "id": "GET /shop/br", "json": "{\"operationId\":\"getBRShop\",\"parameters\":[{\"description\":\"Language code for localized content\",\"in\":\"query\",\"name\":\"language\",\"required\":false,\"schema\":{\"default\":\"en\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"daily\":{\"items\":{\"properties\":{\"bundle\":{\"properties\":{\"image\":{\"format\":\"uri\",\"type\":\"string\"},\"info\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"displayDescription\":{\"description\":\"Description of the shop entry\",\"type\":\"string\"},\"displayName\":{\"description\":\"Display name of the shop entry\",\"type\":\"string\"},\"items\":{\"items\":{\"properties\":{\"added\":{\"description\":\"Date when the item was added\",\"format\":\"date-time\",\"type\":\"string\"},\"description\":{\"description\":\"Description of the cosmetic item\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the cosmetic item\",\"type\":\"string\"},\"images\":{\"properties\":{\"featured\":{\"format\":\"uri\",\"type\":\"string\"},\"icon\":{\"format\":\"uri\",\"type\":\"string\"},\"smallIcon\":{\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"},\"name\":{\"description\":\"Name of the cosmetic item\",\"type\":\"string\"},\"rarity\":{\"properties\":{\"displayValue\":{\"description\":\"Display name of the rarity\",\"type\":\"string\"},\"value\":{\"description\":\"Rarity level\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":{\"properties\":{\"displayValue\":{\"description\":\"Display name of the type\",\"type\":\"string\"},\"value\":{\"description\":\"Type of cosmetic (outfit, pickaxe, glider, etc.)\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"},\"type\":\"array\"},\"mainId\":{\"description\":\"Main item ID\",\"type\":\"string\"},\"mainType\":{\"description\":\"Type of the main item\",\"type\":\"string\"},\"offerId\":{\"description\":\"Unique offer ID\",\"type\":\"string\"},\"price\":{\"properties\":{\"finalPrice\":{\"description\":\"Final price in V-Bucks\",\"type\":\"integer\"},\"regularPrice\":{\"description\":\"Regular price in V-Bucks\",\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"},\"type\":\"array\"},\"date\":{\"description\":\"Date when the shop was last updated\",\"format\":\"date-time\",\"type\":\"string\"},\"featured\":{\"items\":{\"properties\":{\"bundle\":{\"properties\":{\"image\":{\"format\":\"uri\",\"type\":\"string\"},\"info\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"displayDescription\":{\"description\":\"Description of the shop entry\",\"type\":\"string\"},\"displayName\":{\"description\":\"Display name of the shop entry\",\"type\":\"string\"},\"items\":{\"items\":{\"properties\":{\"added\":{\"description\":\"Date when the item was added\",\"format\":\"date-time\",\"type\":\"string\"},\"description\":{\"description\":\"Description of the cosmetic item\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the cosmetic item\",\"type\":\"string\"},\"images\":{\"properties\":{\"featured\":{\"format\":\"uri\",\"type\":\"string\"},\"icon\":{\"format\":\"uri\",\"type\":\"string\"},\"smallIcon\":{\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"},\"name\":{\"description\":\"Name of the cosmetic item\",\"type\":\"string\"},\"rarity\":{\"properties\":{\"displayValue\":{\"description\":\"Display name of the rarity\",\"type\":\"string\"},\"value\":{\"description\":\"Rarity level\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":{\"properties\":{\"displayValue\":{\"description\":\"Display name of the type\",\"type\":\"string\"},\"value\":{\"description\":\"Type of cosmetic (outfit, pickaxe, glider, etc.)\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"},\"type\":\"array\"},\"mainId\":{\"description\":\"Main item ID\",\"type\":\"string\"},\"mainType\":{\"description\":\"Type of the main item\",\"type\":\"string\"},\"offerId\":{\"description\":\"Unique offer ID\",\"type\":\"string\"},\"price\":{\"properties\":{\"finalPrice\":{\"description\":\"Final price in V-Bucks\",\"type\":\"integer\"},\"regularPrice\":{\"description\":\"Regular price in V-Bucks\",\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"},\"type\":\"array\"},\"hash\":{\"description\":\"Unique hash of the current shop\",\"type\":\"string\"}},\"type\":\"object\"},\"status\":{\"example\":200,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful response with shop data\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Bad request\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/shop/br", "segments": [{ "lit": "shop" }, { "lit": "br" }], "select": { "$action": "br", "exist": ["language"] }, "transform": { "req": "`reqdata`", "res": "`body.data`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "shop", "name__orig": "shop", "Name": "Shop", "name_": "shop", "name-": "shop", "NAME": "SHOP", "index$": 1 }, { "active": true, "entity": "shop", "key$": "BasicShopFlow", "kind": "basic", "name": "BasicShopFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": { "ref": "shop_ref01", "srcdatavar": "shop_ref01_data", "suffix": "_dt0" }, "match": {}, "op": "load", "spec": [], "valid": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-shop_ref01" } }], "index$": 0 }] }, 'Shop');
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -102,12 +100,6 @@ function basicSetup(extra) {
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
             }]
     });
-    // Detect whether the user provided a real ENTID JSON via env var. The
-    // basic flow consumes synthetic IDs from the fixture file; without an
-    // override those synthetic IDs reach the live API and 4xx. Surface this
-    // to the test so it can skip rather than fail.
-    const idmapEnvVal = process.env['FORTNITE_TEST_SHOP_ENTID'];
-    const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{');
     const env = (0, utility_1.envOverride)({
         'FORTNITE_TEST_SHOP_ENTID': idmap,
         'FORTNITE_TEST_LIVE': 'FALSE',
@@ -115,7 +107,13 @@ function basicSetup(extra) {
     });
     idmap = env['FORTNITE_TEST_SHOP_ENTID'];
     const live = 'TRUE' === env.FORTNITE_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
     if (live) {
+        const rawIds = process.env['FORTNITE_TEST_SHOP_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
         client = new __1.FortniteSDK(merge([
             // FIRST, so the generated fields below win: sdk-test-control.json's
             // test.client.options adds to the live client, it does not redirect it.
@@ -126,7 +124,8 @@ function basicSetup(extra) {
             // argument at all - so a bare 'extra' silently discarded the apikey
             // and server values above and handed the SDK undefined. Harmless
             // while there was nothing in that object; not harmless now.
-            extra || {}
+            extra || {},
+            { system: { fetch: transport.fetch } }
         ]));
     }
     const setup = {
@@ -138,7 +137,7 @@ function basicSetup(extra) {
         data: entityData,
         explain: 'TRUE' === env.FORTNITE_TEST_EXPLAIN,
         live,
-        syntheticOnly: live && !idmapOverridden,
+        transport,
         now: Date.now(),
     };
     return setup;

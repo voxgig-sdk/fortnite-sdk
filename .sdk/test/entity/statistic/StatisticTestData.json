@@ -29,5 +29,2283 @@
         "stats": {}
       }
     }
+  },
+  "requests": {
+    "GET /stats/br/v2": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getBRStats",
+        "parameters": [
+          {
+            "description": "Epic Games account name of the player",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Epic Games account ID of the player",
+            "in": "query",
+            "name": "accountId",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Time window for statistics",
+            "in": "query",
+            "name": "timeWindow",
+            "required": false,
+            "schema": {
+              "default": "lifetime",
+              "enum": [
+                "season",
+                "lifetime"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Return response as an image",
+            "in": "query",
+            "name": "image",
+            "required": false,
+            "schema": {
+              "enum": [
+                "all",
+                "keyboardMouse",
+                "gamepad",
+                "touch",
+                "none"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "account": {
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "battlePass": {
+                          "properties": {
+                            "level": {
+                              "type": "integer"
+                            },
+                            "progress": {
+                              "type": "integer"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "stats": {
+                          "properties": {
+                            "all": {
+                              "properties": {
+                                "duo": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "ltm": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "overall": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "solo": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "squad": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "trio": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "gamepad": {
+                              "properties": {
+                                "duo": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "ltm": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "overall": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "solo": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "squad": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "trio": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "keyboardMouse": {
+                              "properties": {
+                                "duo": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "ltm": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "overall": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "solo": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "squad": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "trio": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "touch": {
+                              "properties": {
+                                "duo": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "ltm": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "overall": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "solo": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "squad": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "trio": {
+                                  "properties": {
+                                    "deaths": {
+                                      "description": "Total deaths",
+                                      "type": "integer"
+                                    },
+                                    "kd": {
+                                      "description": "Kill/Death ratio",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "kills": {
+                                      "description": "Total kills",
+                                      "type": "integer"
+                                    },
+                                    "killsPerMatch": {
+                                      "description": "Kills per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "killsPerMin": {
+                                      "description": "Kills per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "matches": {
+                                      "description": "Total matches played",
+                                      "type": "integer"
+                                    },
+                                    "minutesPlayed": {
+                                      "description": "Total minutes played",
+                                      "type": "integer"
+                                    },
+                                    "playersOutlived": {
+                                      "description": "Total players outlived",
+                                      "type": "integer"
+                                    },
+                                    "score": {
+                                      "description": "Total score",
+                                      "type": "integer"
+                                    },
+                                    "scorePerMatch": {
+                                      "description": "Score per match",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "scorePerMin": {
+                                      "description": "Score per minute",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "top10": {
+                                      "description": "Number of top 10 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top12": {
+                                      "description": "Number of top 12 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top25": {
+                                      "description": "Number of top 25 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top3": {
+                                      "description": "Number of top 3 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top5": {
+                                      "description": "Number of top 5 finishes",
+                                      "type": "integer"
+                                    },
+                                    "top6": {
+                                      "description": "Number of top 6 finishes",
+                                      "type": "integer"
+                                    },
+                                    "winRate": {
+                                      "description": "Win rate percentage",
+                                      "format": "double",
+                                      "type": "number"
+                                    },
+                                    "wins": {
+                                      "description": "Number of wins",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "status": {
+                      "example": 200,
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with player statistics"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - Invalid parameters"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Player not found"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
