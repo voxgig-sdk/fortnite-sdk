@@ -159,15 +159,6 @@ shop := client.Shop(nil)
 fmt.Println(shop.GetName()) // "shop"
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `daily` | `[]any` | No |  |
-| `date` | `string` | No | Date when the shop was last updated |
-| `featured` | `[]any` | No |  |
-| `hash` | `string` | No | Unique hash of the current shop |
-
 ### Operations
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`

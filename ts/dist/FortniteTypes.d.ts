@@ -13,10 +13,6 @@ export interface CosmeticListMatch {
     [action: string]: any;
 }
 export interface Shop {
-    daily?: any[];
-    date?: string;
-    featured?: any[];
-    hash?: string;
 }
 export interface ShopLoadMatch {
     language?: string;

@@ -30,11 +30,8 @@ class CosmeticListMatch(TypedDict, total=False):
     language: str
 
 
-class Shop(TypedDict, total=False):
-    daily: list
-    date: str
-    featured: list
-    hash: str
+class Shop(TypedDict):
+    pass
 
 
 class ShopLoadMatch(TypedDict, total=False):

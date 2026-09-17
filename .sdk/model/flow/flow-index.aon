@@ -1,5 +1,5 @@
 # Flows
 
-@"BasicCosmeticFlow.aon"
-@"BasicShopFlow.aon"
-@"BasicStatisticFlow.aon"
+@"./BasicCosmeticFlow.aon"
+@"./BasicShopFlow.aon"
+@"./BasicStatisticFlow.aon"

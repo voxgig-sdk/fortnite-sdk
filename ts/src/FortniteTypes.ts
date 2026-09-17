@@ -26,10 +26,6 @@ export interface CosmeticListMatch {
 }
 
 export interface Shop {
-  daily?: any[]
-  date?: string
-  featured?: any[]
-  hash?: string
 }
 
 export interface ShopLoadMatch {

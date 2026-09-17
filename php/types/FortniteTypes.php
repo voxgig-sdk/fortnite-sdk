@@ -33,10 +33,6 @@ class CosmeticListMatch
 /** Shop entity data model. */
 class Shop
 {
-    public ?array $daily = null;
-    public ?string $date = null;
-    public ?array $featured = null;
-    public ?string $hash = null;
 }
 
 /** Request payload for Shop#load. */

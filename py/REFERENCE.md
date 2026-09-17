@@ -150,15 +150,6 @@ Return the entity name.
 shop = client.Shop()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `daily` | `list` | No |  |
-| `date` | `str` | No | Date when the shop was last updated |
-| `featured` | `list` | No |  |
-| `hash` | `str` | No | Unique hash of the current shop |
-
 ### Operations
 
 #### `load(reqmatch, ctrl=None) -> dict`

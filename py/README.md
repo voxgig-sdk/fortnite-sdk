@@ -262,10 +262,6 @@ API path: `/cosmetics/br`
 
 | Field | Description |
 | --- | --- |
-| `daily` |  |
-| `date` | Date when the shop was last updated |
-| `featured` |  |
-| `hash` | Unique hash of the current shop |
 
 Operations: Load.
 
@@ -326,15 +322,6 @@ Create an instance: `shop = client.Shop()`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `daily` | `list` |  |
-| `date` | `str` | Date when the shop was last updated |
-| `featured` | `list` |  |
-| `hash` | `str` | Unique hash of the current shop |
 
 #### Example: Load
 
@@ -510,6 +497,7 @@ Use `helpers.to_map()` to safely validate that a value is a dict.
 py/
 ├── fortnite_sdk.py         -- Main SDK module
 ├── config.py                    -- Configuration
+├── schema.py                    -- Generated option + entity specs
 ├── features.py                  -- Feature factory
 ├── core/                        -- Core types and context
 ├── entity/                      -- Entity implementations

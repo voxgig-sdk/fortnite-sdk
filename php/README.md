@@ -267,10 +267,6 @@ API path: `/cosmetics/br`
 
 | Field | Description |
 | --- | --- |
-| `daily` |  |
-| `date` | Date when the shop was last updated |
-| `featured` |  |
-| `hash` | Unique hash of the current shop |
 
 Operations: Load.
 
@@ -332,15 +328,6 @@ Create an instance: `$shop = $client->Shop();`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `daily` | `array` |  |
-| `date` | `string` | Date when the shop was last updated |
-| `featured` | `array` |  |
-| `hash` | `string` | Unique hash of the current shop |
 
 #### Example: Load
 
@@ -518,6 +505,7 @@ Use `Helpers::to_map()` to safely validate that a value is an array.
 php/
 ├── fortnite_sdk.php          -- Main SDK class
 ├── config.php                     -- Configuration
+├── schema.php                     -- Generated option + entity specs
 ├── features.php                   -- Feature factory
 ├── core/                          -- Core types and context
 ├── entity/                        -- Entity implementations

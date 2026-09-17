@@ -19,10 +19,6 @@
 ---@field language? string
 
 ---@class Shop
----@field daily? table
----@field date? string
----@field featured? table
----@field hash? string
 
 ---@class ShopLoadMatch
 ---@field language? string

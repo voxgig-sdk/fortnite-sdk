@@ -4,32 +4,6 @@ main: kit: entity: shop: {
 
   alias: field: {}
 
-  fields: [
-    {
-      name: "daily"
-      req: false
-      type: "`$ARRAY`"
-    }
-    {
-      format: "date-time"
-      name: "date"
-      req: false
-      short: "Date when the shop was last updated"
-      type: "`$STRING`"
-    }
-    {
-      name: "featured"
-      req: false
-      type: "`$ARRAY`"
-    }
-    {
-      name: "hash"
-      req: false
-      short: "Unique hash of the current shop"
-      type: "`$STRING`"
-    }
-  ]
-
   name: "shop"
   op: {
     load: {

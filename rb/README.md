@@ -256,10 +256,6 @@ API path: `/cosmetics/br`
 
 | Field | Description |
 | --- | --- |
-| `daily` |  |
-| `date` | Date when the shop was last updated |
-| `featured` |  |
-| `hash` | Unique hash of the current shop |
 
 Operations: Load.
 
@@ -321,15 +317,6 @@ Create an instance: `shop = client.Shop`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `daily` | `Array` |  |
-| `date` | `String` | Date when the shop was last updated |
-| `featured` | `Array` |  |
-| `hash` | `String` | Unique hash of the current shop |
 
 #### Example: Load
 
@@ -507,6 +494,7 @@ Use `Helpers.to_map()` to safely validate that a value is a hash.
 rb/
 ├── Fortnite_sdk.rb       -- Main SDK module
 ├── config.rb                  -- Configuration
+├── schema.rb                  -- Generated option + entity specs
 ├── features.rb                -- Feature factory
 ├── core/                      -- Core types and context
 ├── entity/                    -- Entity implementations

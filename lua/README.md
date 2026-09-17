@@ -251,10 +251,6 @@ API path: `/cosmetics/br`
 
 | Field | Description |
 | --- | --- |
-| `daily` |  |
-| `date` | Date when the shop was last updated |
-| `featured` |  |
-| `hash` | Unique hash of the current shop |
 
 Operations: Load.
 
@@ -315,15 +311,6 @@ Create an instance: `local shop = client:Shop(nil)`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `daily` | `table` |  |
-| `date` | `string` | Date when the shop was last updated |
-| `featured` | `table` |  |
-| `hash` | `string` | Unique hash of the current shop |
 
 #### Example: Load
 
@@ -499,6 +486,7 @@ Use `helpers.to_map()` to safely validate that a value is a table.
 lua/
 ├── fortnite_sdk.lua    -- Main SDK module
 ├── config.lua               -- Configuration
+├── schema.lua               -- Generated option + entity specs
 ├── features.lua             -- Feature factory
 ├── core/                    -- Core types and context
 ├── entity/                  -- Entity implementations

@@ -51,25 +51,8 @@ CosmeticListMatch = Struct.new(
 )
 
 # Shop entity data model.
-#
-# @!attribute [rw] daily
-#   @return [Array, nil]
-#
-# @!attribute [rw] date
-#   @return [String, nil]
-#
-# @!attribute [rw] featured
-#   @return [Array, nil]
-#
-# @!attribute [rw] hash
-#   @return [String, nil]
-Shop = Struct.new(
-  :daily,
-  :date,
-  :featured,
-  :hash,
-  keyword_init: true
-)
+class Shop
+end
 
 # Request payload for Shop#load.
 #

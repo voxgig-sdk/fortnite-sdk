@@ -1,5 +1,5 @@
 # Entity Models
 
-@"cosmetic.aon"
-@"shop.aon"
-@"statistic.aon"
+@"./cosmetic.aon"
+@"./shop.aon"
+@"./statistic.aon"

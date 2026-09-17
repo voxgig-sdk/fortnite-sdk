@@ -105,12 +105,12 @@ local result, err = client:Statistic():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/fortnite-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fortnite-sdk/releases) |
-| Python | `voxgig-sdk-fortnite` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fortnite-sdk/releases) |
-| PHP | `voxgig-sdk/fortnite` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fortnite-sdk/releases) |
+| TypeScript | `@voxgig-sdk/fortnite-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fortnite-sdk/tags) |
+| Python | `voxgig-sdk-fortnite` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fortnite-sdk/tags) |
+| PHP | `voxgig-sdk/fortnite` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fortnite-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/fortnite-sdk/go` | `go get github.com/voxgig-sdk/fortnite-sdk/go@latest` |
-| Ruby | `voxgig-sdk-fortnite` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fortnite-sdk/releases) |
-| Lua | `voxgig-sdk-fortnite` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fortnite-sdk/releases) |
+| Ruby | `voxgig-sdk-fortnite` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fortnite-sdk/tags) |
+| Lua | `voxgig-sdk-fortnite` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fortnite-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/fortnite-sdk/go-cli` | `go install github.com/voxgig-sdk/fortnite-sdk/go-cli/cmd/fortnite@latest` |
 | Go MCP server | `github.com/voxgig-sdk/fortnite-sdk/go-mcp` | `go get github.com/voxgig-sdk/fortnite-sdk/go-mcp@latest` |
 

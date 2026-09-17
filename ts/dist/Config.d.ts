@@ -134,22 +134,7 @@ declare class Config {
             };
         };
         shop: {
-            fields: ({
-                name: string;
-                type: string;
-                format?: undefined;
-                short?: undefined;
-            } | {
-                format: string;
-                name: string;
-                short: string;
-                type: string;
-            } | {
-                name: string;
-                short: string;
-                type: string;
-                format?: undefined;
-            })[];
+            fields: never[];
             name: string;
             op: {
                 load: {

@@ -280,10 +280,6 @@ API path: `/cosmetics/br`
 
 | Field | Description |
 | --- | --- |
-| `"daily"` |  |
-| `"date"` | Date when the shop was last updated |
-| `"featured"` |  |
-| `"hash"` | Unique hash of the current shop |
 
 Operations: Load.
 
@@ -348,15 +344,6 @@ Create an instance: `shop := client.Shop(nil)`
 | Method | Description |
 | --- | --- |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `daily` | `[]any` |  |
-| `date` | `string` | Date when the shop was last updated |
-| `featured` | `[]any` |  |
-| `hash` | `string` | Unique hash of the current shop |
 
 #### Example: Load
 

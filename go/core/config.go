@@ -181,27 +181,7 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"shop": map[string]any{
-				"fields": []any{
-					map[string]any{
-						"name": "daily",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"format": "date-time",
-						"name": "date",
-						"short": "Date when the shop was last updated",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "featured",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "hash",
-						"short": "Unique hash of the current shop",
-						"type": "`$STRING`",
-					},
-				},
+				"fields": []any{},
 				"name": "shop",
 				"op": map[string]any{
 					"load": map[string]any{

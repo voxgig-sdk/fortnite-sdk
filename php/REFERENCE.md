@@ -154,15 +154,6 @@ Return the entity name.
 $shop = $client->Shop();
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `daily` | `array` | No |  |
-| `date` | `string` | No | Date when the shop was last updated |
-| `featured` | `array` | No |  |
-| `hash` | `string` | No | Unique hash of the current shop |
-
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`

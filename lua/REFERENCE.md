@@ -152,15 +152,6 @@ Return the entity name.
 local shop = client:Shop(nil)
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `daily` | `table` | No |  |
-| `date` | `string` | No | Date when the shop was last updated |
-| `featured` | `table` | No |  |
-| `hash` | `string` | No | Unique hash of the current shop |
-
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`

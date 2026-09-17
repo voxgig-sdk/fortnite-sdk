@@ -204,27 +204,7 @@ class Config {
             }
         },
         "shop": {
-            "fields": [
-                {
-                    "name": "daily",
-                    "type": "`$ARRAY`"
-                },
-                {
-                    "format": "date-time",
-                    "name": "date",
-                    "short": "Date when the shop was last updated",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "featured",
-                    "type": "`$ARRAY`"
-                },
-                {
-                    "name": "hash",
-                    "short": "Unique hash of the current shop",
-                    "type": "`$STRING`"
-                }
-            ],
+            "fields": [],
             "name": "shop",
             "op": {
                 "load": {

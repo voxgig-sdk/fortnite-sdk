@@ -30,10 +30,6 @@ type CosmeticListMatch struct {
 
 // Shop is the typed data model for the shop entity.
 type Shop struct {
-	Daily *[]any `json:"daily,omitempty"`
-	Date *string `json:"date,omitempty"`
-	Featured *[]any `json:"featured,omitempty"`
-	Hash *string `json:"hash,omitempty"`
 }
 
 // ShopLoadMatch is the typed request payload for Shop.LoadTyped.

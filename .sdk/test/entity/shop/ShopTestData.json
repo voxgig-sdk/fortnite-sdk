@@ -2,36 +2,19 @@
   "existing": {
     "shop": {
       "SHOP00": {
-        "daily": [],
-        "date": "s29",
-        "featured": [],
-        "hash": "s2b",
         "id": "SHOP00"
       },
       "SHOP01": {
-        "daily": [],
-        "date": "s51",
-        "featured": [],
-        "hash": "s53",
         "id": "SHOP01"
       },
       "SHOP02": {
-        "daily": [],
-        "date": "s79",
-        "featured": [],
-        "hash": "s7b",
         "id": "SHOP02"
       }
     }
   },
   "new": {
     "shop": {
-      "shop_ref01": {
-        "daily": [],
-        "date": "sa1",
-        "featured": [],
-        "hash": "sa3"
-      }
+      "shop_ref01": {}
     }
   },
   "requests": {

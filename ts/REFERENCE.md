@@ -212,15 +212,6 @@ Return a copy of the entity options.
 const shop = client.Shop()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `daily` | `any[]` | No |  |
-| `date` | `string` | No | Date when the shop was last updated |
-| `featured` | `any[]` | No |  |
-| `hash` | `string` | No | Unique hash of the current shop |
-
 ### Actions
 
 This entity exposes custom API actions in addition to the standard
